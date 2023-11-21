@@ -63,10 +63,16 @@
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
+  \item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-10pt}
+}
+
+\newcommand{\resumeEducationSubheading}[4]{
+  \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} | \textit{\small#3} & \textit{\small #4} | #2
     \end{tabular*}\vspace{-10pt}
 }
 
@@ -74,7 +80,7 @@
 \newcommand{\resumeSubSubheading}[2]{
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-10pt}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
@@ -105,8 +111,15 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\resumeItemTitleAndStart}[1]{
+          \item\small{
+          \textbf{#1\vspace{-2pt}}
+          }
+          \begin{itemize}[topsep=0pt, leftmargin=*]
+          }
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,91 +136,86 @@
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
-
     \resumeSubheading
       {Sony}{Zurich, Switzerland}
       {Senior AI Research Engineer}{Aug 2023 - Present}
       \resumeItemListStart
-        \resumeItem{Sparse Attention for Vision Transformer}
-          {Overhauled FlashAttention-2's per-block attention in PyTorch with sparse masking, achieving 50\% FLOP reduction during inference and higher accuracy.}
-        \resumeItem{Sparse Data Embedding}
-          {Innovated an asynchronous PointNet-based embedding to transform spatio-temporal data into dense tensor representations, enabling seamless Transformer model integration.}
-        \resumeItem{Research Event-Based SLAM}
-          {Advanced ego-motion compensation techniques for event-based data to optimize SLAM pipeline performance.}
-        \resumeItem{Model Conversion Tooling}
-          {Developed a tool for efficient PyTorch to ONNX model conversion, streamlining model deployment processes.}
-        \resumeItem{Energy-Latency Estimator}
-          {Created a tool using ZigZag software for predicting energy consumption and latency of AI models on diverse hardware platforms.}
-        \resumeItem{SW/HW Co-Design Automation with Neural Architecture Search}
-          {Built an AI-driven, hardware-aware neural architecture search framework. Enabled reducing a model by TODO.}
+        \resumeItemTitleAndStart{Sparsity Exploitation in Transformers}
+          \item{Engineered an asynchronous PointNet-based embedding, enabling continuous spatio-temporal data conversion into dense tensors for seamless, ongoing feeding of Transformer models - \textit{Publication (WIP).}\vspace{-2pt}}
+          \item{Designed a NPU-adapted sparse scaled-dot-product-attention per-block module for highly efficient sparse attention in Transformers, achieving moer than 50\% FLOPs reduction during inference and higher accuracy.\vspace{-2pt}}
+        \end{itemize}
+        
+        \resumeItem{SLAM Enhanced AI Training}
+          {Optimized the training pipeline by integrating a state-of-the-art SLAM pipeline with ego-motion compensation, leading to 6x faster model convergence and a 15\% increase in accuracy.}
         % \resumeItem{FPGA Design Innovator - FPGA Design Lead}
           % {Implemented a state-of-the-art strategy in FPGA for per-block sparse attention, yielding over 20x increase in energy efficiency compared to standard GPU processes.}
-        \resumeItem{Technical Supervision}
-          {Mentored interns in AI-based visual odometry and cost-effective data embedding for event-based cameras.}
-        \resumeItem{Scrum Master}
-          {Managed project initiatives as a repository maintainer and Scrum Master, ensuring efficient and streamlined project progress.}
-        \resumeItem{Communication}
-          {Facilitated global knowledge sharing through patents, papers, thesis contributions, speaking engagements, and extensive internal presentations.}
-        \resumeItem{AI Hardware Survey}
-          {Conducted in-depth research and developed a tool for estimating energy and latency of hardware accelerators for attention-based networks.}
+        % \resumeItem{Technical Supervision}
+        %   {Mentored interns in AI-based visual odometry and cost-effective data embedding for event-based cameras.}
+        % \resumeItem{Scrum Master}
+        %   {Managed project initiatives as a repository maintainer and Scrum Master, ensuring efficient and streamlined project progress.}
+        % \resumeItem{Communication}
+          % {Facilitated global knowledge sharing through patents, papers, thesis contributions, speaking engagements, and extensive internal presentations.}
       \resumeItemListEnd
-
+          
     \resumeSubSubheading
       {AI Research Engineer}{June 2022 - Aug 2023}
-      \resumeItemListStart  
-      \resumeItem{TODO}{TODO}
+      \resumeItemListStart
+        \resumeItemTitleAndStart{SW/HW Co-Design Automation with Neural Architecture Search}
+          \item{Built an AI-driven, Hardware-Aware Neural Architecture Search framework. Enabled to automatically reduce model to 8\% FLOP cost while losing only 4\% relative accuracy.\vspace{-2pt}}
+          \item{Integrated a Design Space Exploration software in thas NAS to estimate energy and latency of model execution.\vspace{-2pt}}
+        \end{itemize}
+        \resumeItem{Transformer Hardware Acceleration Survey}
+          {Conducted a Transformer acceleration study, guiding Sony's AI advancements; featured in CTO's strategic report. - (Attended ISSCC23)}
+        \resumeItem{Vision Transformer Design}
+          {Implemented an AI model leveraging CNN and Transformer architectures to enhance video sequence continuity through advanced frame generation. \textit{(1 patent).}}
       \resumeItemListEnd
 
     \resumeSubheading
       {STMicroelectronics}{Grenoble, France}
       {Hardware Design Engineer}{Apr 2021 - May 2023}
       \resumeItemListStart
-        \resumeItem{CPU}
-          {Innovatively built the Trace and Debug subsystem from scratch for an ARM's Armv9-A SoC. Developed a python library that automates the components instantiation and assembly.}
-        \resumeItem{Reset and Clock Controller}
-          {Crafted an RTL generator to automate the generation the reset and clock controller for a multi-clock domain STM32 MPU SoC with over 300 peripheral resets and clocks.}
+        \resumeItem{CPU Design}
+          {Built Trace and Debug subsystem for ARM's Armv9-A SoC from scratch and created a Python library for automated component assembly.}
+        \resumeItem{Reset and Clock Controller Generator}
+          {Developed an RTL generator for STM32 MPU SoC, automating multi-clock domain reset and clock control for over 300 peripherals.}
         \resumeItem{CPU Benchmarking}
-          {Conducted extensive benchmarking of an ARM cortex on a multi-core MPU SoC from C-coded CoreMark benchmark. Demonstrated significant impacts of compiler choices on system performance.}
-        \resumeItem{Training}
-          {Gained specialized training on the latest ARM IPs, focusing on V9 architecture and AMBA5 protocols, enhancing technical proficiency in cutting-edge CPU architecture.}
+          {Conducted CoreMark benchmarking on a multi-core MPU SoC, highlighting significant performance gains (up to 6x) through compiler updates.}
+        % \resumeItem{Training}
+          % {Gained specialized training on the latest ARM IPs, focusing on V9 architecture and AMBA5 protocols, enhancing technical proficiency in cutting-edge CPU architecture.}
       \resumeItemListEnd
 
     \resumeSubheading
       {CEA LETI}{Grenoble, France}
       {Doctoral Researcher on AI and Hardware Design}{Apr 2018 - Apr 2021}
       \resumeItemListStart
-        \resumeItem{Neuromorphic Hardware Survey}
+        \resumeItem{Neuromorphic Hardware Analysis}
           {Conducted a comprehensive bibliographic study on scalable, multi-chip, distributed neuromorphic hardware, leading to a widely cited survey in ACM JETC.}
-        \resumeItem{HW: ULP IC Design for Near-Sensor Sparse CNN}
-          {Developed an ultra-low power neuromorphic accelerator in 28nm FDSOI, achieving record-breaking energy efficiency and a minimal footprint for integration with EB pixel grids.}
-        \resumeItem{SW: Moving Object Detection}
-          {Engineered an innovative Event-Based (EB) VIO/SLAM pipeline with integrated ego-motion compensation, adaptable to standard VIO/SLAM pipelines without requiring conventional frames. Devised a novel method for object detection using reconstructed ego-motion compensated EB frames, leading to a patent and enhancing perception accuracy.}
-        \resumeItem{Simualtion and Dataset Generation}
-          {Created two specialized datasets for in-house use, one virtually using Blender and another with a CeleX-V imager, enhancing data accuracy and relevance.}
-        \resumeItem{Communication}
-          {TODO}
+        \resumeItem{ULP IC Design for Neuromorphic Acceleration}
+          {Built a 28nm FDSOI ultra-low power neuromorphic accelerator, setting energy efficiency records and enabling seamless EB pixel grid integration. \textit{(1 paper, 2 patents.)}}
+        \resumeItem{EB VIO/SLAM Pipeline and Object Detection Innovation}
+          {Developed an Event-Based VIO/SLAM pipeline with ego-motion compensation, leading to a patent and improved perception accuracy. - \textit{1 patent.}}
+        % \resumeItem{Specialized Dataset Development}
+        %   {Generated two unique datasets, one with Blender and another using CeleX-V imager, improving data accuracy and applicability.}
       \resumeItemListEnd
 
     \resumeSubheading
       {IBM Research}{Yorktown Heights, NY, USA}
-      {Hardware Engineer (Intern)}{Feb 2017 - Aug 2017}
+      {Intern Hardware Engineer}{Feb 2017 - Aug 2017}
       \resumeItemListStart
-        \resumeItem{NVM NPU Characterization Automation}
-          {Spearheaded the automation of Phase Change Memory crossbar characterization at wafer-scale, drastically reducing the full characterization time for thousands of crossbars to mere hours.}
-        \resumeItem{Neuromorphic Application Pioneer}
-          {Contributed to the optimization of PCM device technologies for neuromorphic applications, resulting in patented methods for enhancing conductance linearity.}
+        \item\small{Automated wafer-scale memory device characterization, reducing execution time from days to hours.\vspace{-2pt}}
+        \item\small{Contributed to the optimization of PCM technologies for Compute-in-Memory AI accelerarion. - \textit{1 paper, 1 patent.}\vspace{-2pt}}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
 
 %-----------Patents and Publications-----------------
-\section{Notable Publications}
-  % \resumeItemListStart
-    \datedline{Scalable Pitch-Constrained Neural Processing Unit for 3D Integration with Event-Based Imagers}{2021}
-    % \datedline{Advanced 3D Technologies and Architectures for 3D Smart Image Sensors}{2021}
-    \datedline{Spiking Neural Network Hardware Implementations and Challenges: A Survey}{2019 - 200 cites}
-    \datedline{On-Chip Trainable 1.4M 6T2R PCM Synaptic Array with 1.6K Stochastic LIF Neurons for Spiking RBM}{2019}
+% \section{Notable Publications}
+%   % \resumeItemListStart
+%     \datedline{Scalable Pitch-Constrained Neural Processing Unit for 3D Integration with Event-Based Imagers}{2021}
+%     % \datedline{Advanced 3D Technologies and Architectures for 3D Smart Image Sensors}{2021}
+%     \datedline{Spiking Neural Network Hardware Implementations and Challenges: A Survey}{2019 - 200 cites}
+%     \datedline{On-Chip Trainable 1.4M 6T2R PCM Synaptic Array with 1.6K Stochastic LIF Neurons for Spiking RBM}{2019}
   % \resumeItemListEnd
 %-----------PROJECTS-----------------
 % \section{Projects}
@@ -224,32 +232,31 @@
 
 %
 %--------PROGRAMMING SKILLS------------
-% \section{Programming Skills}
-%  \resumeSubHeadingListStart
-%    \item{
-%      \textbf{Languages}{: Python, C, C++, System Verilog, VHDL, MATLAB}
-%      \hfill
-%      \textbf{Technologies}{: PyTorch}
-%      \hfill
-%      \textbf{Tools}{: PyTorch}
-%    }
-%  \resumeSubHeadingListEnd
+\section{Programming Skills}
+\begin{itemize}[leftmargin=*, topsep=0pt]
+   \item
+     \textbf{Languages}{: Python, C, C++, SystemVerilog, VHDL, MATLAB}\vspace{-10pt}
+   \item
+     \textbf{Technologies}{: PyTorch, ONNX, ROS, Xilinx FPGAs, }\vspace{-10pt}
+   \item
+     \textbf{Tools}{: Git, VScode, EDA (Cadence, Synopsys, Mentor), LaTeX}\vspace{-10pt}
+  \end{itemize}
 
 
 
 %-----------EDUCATION-----------------
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
+  \begin{itemize}[leftmargin=*, topsep=0pt]
+    \resumeEducationSubheading
       {Grenoble Alpes University}{Grenoble, France}
       {Ph.D. in Computer Science}{Apr 2018 -- Apr 2021}
-    \resumeSubheading
+    \resumeEducationSubheading
       {EPFL}{Lausanne, Switzerland}
-      {Master of Engineering in Electronics (Highest Honors)}{Sep 2015 -- Sep 2017}
-    \resumeSubheading
+      {"M.Eng. in Electronics (Highest Honors)"}{Sep 2015 -- Sep 2017}
+    \resumeEducationSubheading
       {Grenoble Institute of Technology}{Grenoble, France}
-      {Bachelor of Engineering in Electronics}{Sep 2015 -- Sep 2017}
-  \resumeSubHeadingListEnd
+      {B.Eng. in Electronics}{Sep 2015 -- Sep 2017}
+  \end{itemize}
 
 
 
