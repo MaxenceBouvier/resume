@@ -68,11 +68,20 @@
 }
 
 \newcommand{\resumeSubheading}[4]{
+  % \item[] % REMOVEBULLET: Use to reduce margin from bullet point
   \item
+    % \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r} % REMOVEBULLET: Use to reduce margin from bullet point
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
+      \textbf{#1} & #2 \vspace{-2pt}\\ 
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-10pt}
+    \end{tabular*}\vspace{-8.5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    % \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r} % REMOVEBULLET: Use to reduce margin from bullet point
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-8.5pt}
 }
 
 \newcommand{\resumeEducationSubheading}[4]{
@@ -81,12 +90,6 @@
     \end{tabular*}\vspace{-10pt}
 }
 
-
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-10pt}
-}
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
@@ -104,6 +107,8 @@
   {\par #1 \hfill #2 \par}%
 }
 
+% \setlist[itemize]{leftmargin=*}
+
 % \newcommand{\resumePaperItem}[2]{
 %   \vspace{-1pt}\item
 %     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -115,6 +120,7 @@
 \renewcommand{\labelitemii}{$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+% \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt]} % REMOVEBULLET: Use to reduce margin from bullet point
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-5pt}}
@@ -143,8 +149,8 @@
 
 %-----------CENTERED TEXT-----------------
 \begin{justify}
-  \small{I discovered AI's potential six years ago at IBM, inspiring my Ph.D. studies to build energy-efficient machine learning vision systems. At Sony, I have been working on multimodel transformer models for low power vision systems. I supervised many successful internship projects which helped me patent several ideas. I'm now eager to create AI solutions that can impact millions.}
-\end{justify}\vspace{-5pt}
+  \small{I discovered AI's potential six years ago at IBM, inspiring my Ph.D. studies to build energy-efficient machine learning vision systems. At Sony, I have been leading a project on multimodal transformer models for low power vision systems. I mentored many successful students during their thesis and internships, which helped me patent several ideas. I'm now eager to create AI solutions that will impact millions.}
+\end{justify}\vspace{-10pt}
 
 
 %-----------EXPERIENCE-----------------
@@ -157,7 +163,7 @@
       \resumeItemListStart
         \resumeItemTitleAndStart{Sparsity Exploitation in Transformers}
           \item{Engineered an asynchronous PointNet-based embedding, enabling continuous spatio-temporal data conversion into dense tensors for seamless, ongoing feeding of Transformer models - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
-          \item{Designed a NPU-adapted sparse scaled-dot-product-attention per-block module for highly efficient sparse attention in Transformers, achieving moer than 50\% FLOPs reduction during inference and higher accuracy.\vspace{-2pt}}
+          \item{Designed an NPU-compatible sparse scaled-dot-product-attention per-block module for highly efficient sparse attention in Transformers, achieving more than 50\% FLOPs reduction during inference and higher accuracy.\vspace{-2pt}}
         \end{itemize}
         
         \resumeItem{SLAM Enhanced AI Training}
@@ -178,26 +184,28 @@
       \resumeItemListStart
         \resumeItemTitleAndStart{SW/HW Co-Design Automation with Neural Architecture Search}
           \item{Built an AI-driven, Hardware-Aware Neural Architecture Search framework. Enabled to automatically reduce model to 8\% FLOP cost while losing only 4\% relative accuracy.\vspace{-2pt}}
-          \item{Integrated a Design Space Exploration software in thas NAS to estimate energy and latency of model execution.\vspace{-2pt}}
+          \item{Integrated a Design Space Exploration software in the NAS loop to estimate energy and latency of model execution.\vspace{-2pt}}
         \end{itemize}
         \resumeItem{Transformer Hardware Acceleration Survey}
           % {Conducted a Transformer acceleration study, guiding Sony's AI advancements; featured in CTO's strategic report. - (Attended ISSCC23)}
-          {Conducted a Transformer acceleration study, guiding Sony's AI advancements; featured in CTO's strategic report.}
-        \resumeItemTitleAndStart{SW/HW Co-Design Automation with Neural Architecture Search}
-          \item{Implemented an AI model leveraging CNN and Transformer architectures to enhance video sequence continuity through advanced frame generation. - (\textit{1 patent.})\vspace{-2pt}}
+          {Conducted a literature study, featured in CTO's strategic report.}
+        \resumeItemTitleAndStart{Vision Transformer for Image Generation}
+          \item{Implemented an AI model leveraging CNN and Transformer architectures to realize advanced frame generation. - (\textit{1 patent.})\vspace{-2pt}}
           \item{Built a live demo of the model, from image sensor to application. This led to 2 major collaborations with other teams.\vspace{-2pt}}
-          \item{Converted to the model as an API to simplify sharing across teams and projects.\vspace{-2pt}}
+          \item{Converted the model as an API to simplify sharing across teams and projects.\vspace{-2pt}}
         \end{itemize}
+        \resumeItem{Software Maintainer}
+          {Responsible for the CI of a few Python libraries shared among teams.}
       \resumeItemListEnd
 
     \resumeSubheading
       {STMicroelectronics}{Grenoble, France}
       {Hardware Design Engineer}{Apr 2021 - May 2023}
       \resumeItemListStart
-        \resumeItemTitleAndStart{CPU Deisgn and Automation}
+        \resumeItemTitleAndStart{CPU Design and Automation}
           % {Built Trace and Debug subsystem for ARM's Armv9-A SoC from scratch and created a Python library for automated component assembly.}
           \item{Created a toolbox to automate component assembly of the Trace and Debug subsystem with ARM's Armv9-A SoC modules.\vspace{-2pt}}
-          \item{Developed an RTL generator for STM32 MPU SoC, streamline the design of a multi-clock domain reset and clock control for over 300 peripherals.\vspace{-2pt}}
+          \item{Developed an RTL generator for STM32 MPU SoC, streamlining the design of a multi-clock domain reset and clock control for over 300 peripherals.\vspace{-2pt}}
         \end{itemize}
         \resumeItem{CPU Benchmarking}
           {Conducted CoreMark benchmarking on a multi-core MPU SoC, highlighting significant performance gains (up to 6x) through compiler updates.}
@@ -211,10 +219,11 @@
       \resumeItemListStart
         \resumeItem{Neuromorphic Hardware Analysis}
           {Conducted a comprehensive bibliographic study on scalable, multi-chip, distributed neuromorphic hardware, leading to a widely cited publication in ACM JETC. - (\textit{1 paper}.)}
-        \resumeItem{ULP IC Design for Sparse AI Acceleration}
-          {Built a 28nm FDSOI ultra-low power sparse AI accelerator, setting energy efficiency records and enabling seamless Event-Based pixel grid integration. - (\textit{1 paper, 2 patents.})}
+        \resumeItem{ULP NPU Design}
+          % {Built (RTL design, synthesis and layout) a 28nm FDSOI ultra-low power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP) and enabling seamless Event-Based pixel grid integration. - (\textit{1 paper, 2 patents.})}
+          {Built (RTL design, synthesis and layout) an ultra-low power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP in 28nm) and enabling seamless integration for 3D-stacked imagers. - (\textit{1 paper, 2 patents.})}
         \resumeItem{EB VIO/SLAM Pipeline and Object Detection Innovation}
-          {Developed an Event-Based VIO/SLAM pipeline with ego-motion compensation, leading to a patent and a solution for moving objects detection. - (\textit{1 patent.})}
+          {Developed an Event-Based VIO/SLAM pipeline with ego-motion compensation, leading to a solution for detecting moving objects. - (\textit{1 patent.})}
         % \resumeItem{Specialized Dataset Development}
         %   {Generated two unique datasets, one with Blender and another using CeleX-V imager, improving data accuracy and applicability.}
       \resumeItemListEnd
@@ -224,7 +233,7 @@
       {Intern Hardware Engineer}{Feb 2017 - Aug 2017}
       \resumeItemListStart
         \item\small{Automated wafer-scale memory device characterization, reducing execution time from days to hours.\vspace{-2pt}}
-        \item\small{Contributed to the optimization of PCM technologies for Compute-in-Memory-based AI accelerarion. - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
+        \item\small{Contributed to the optimization of PCM technologies for Compute-in-Memory-based AI acceleration. - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -256,11 +265,11 @@
 \section{Skills}
 \begin{itemize}[leftmargin=*, topsep=0pt]
    \item
-     \textbf{Languages}{: Python, C, C++, SystemVerilog, VHDL, MATLAB, LaTeX}\vspace{-10pt}
+     \textbf{Languages}{: Python, C, C++, MATLAB, SystemVerilog, VHDL, LaTeX}\vspace{-10pt}
    \item
      \textbf{Libraries}{: PyTorch, ONNX, Numpy, Pandas, ROS, OpenCV}\vspace{-10pt}
    \item
-     \textbf{Softwares}{: Git, VScode, EDA (Cadence, Synopsys, Mentor), PowerPoint Expert}\vspace{-10pt}
+     \textbf{Softwares}{: Git, GitLab CI, EDA (Cadence, Synopsys, Mentor), VSCode, PowerPoint Expert}\vspace{-10pt}
   \end{itemize}
 
 % Programming and Development
