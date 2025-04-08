@@ -149,7 +149,8 @@
 
 %-----------CENTERED TEXT-----------------
 \begin{justify}
-  \small{I discovered AI's potential six years ago at IBM, inspiring my Ph.D. studies to build energy-efficient machine learning vision systems. At Sony, I have been leading a project on multimodal transformer models for low power vision systems. I mentored many successful students during their thesis and internships, which helped me patent several ideas. I'm now eager to create AI solutions that will impact millions.}
+  % \small{Research scientist with 7+ years of experience with AI and Machine Learning at the intersection of hardware and software. Currently leading innovations in ML-powered chip design at Huawei. Expertise spans EDA automation, transformer-based AI models, and energy-efficient hardware accelerators. I am able to explain how to build a Tensor Processing Unit from the sand and how to program it.}
+  \small{AI \& ML Research Scientist with 7+ years of experience at the hardware/software interface, leading innovations in ML-powered chip design at Huawei. Expertise spans EDA automation, transformer-based AI models, computer vision, and energy-efficient HW accelerators.}
 \end{justify}\vspace{-10pt}
 
 
@@ -159,30 +160,35 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Huawei}{Zurich, Switzerland}
-      {Research Scientist | AI for chip design}{May 2024 - Present}
+      {AI \& HW Research Scientist}{May 2024 - Present}
       \resumeItemListStart
         \resumeItem{Team Leader}
-          {Conducted recruitment of multi-disciplinary experts and led us to success on the project's objectives of proposing solutions to reduce switching activity (and ultimately power consumption) inside Huawei's GPUs.\vspace{-2pt}}
-        \resumeItem{ML for Chip Design}
-          {Designed a pipeline for generating low switching activity multiplier units in Verilog by inverting a transformer-based network trained to predict the average switching activity of millions of designs. Automated the synthesis and simulation of million of designs using containerized open source EDA tools (Yosys, OpenRoad, Verilator) - (\textit{1 paper (WIP)})\vspace{-2pt}}
+          {Built and led a multidisciplinary team of experts to develop innovative solutions for reducing switching activity and power consumption in Huawei's GPUs.\vspace{-2pt}}
+        \resumeItemTitleAndStart{ML for Chip Design}
+          \item{Automated the synthesis and simulation of millions of designs using containerized, open source EDA tools.\vspace{-2pt}}
+          \item{Designed a transformer-based neural network for discovering low switching activity multiplier units. The model is trained to predict the power consumption of a multiplier unit. The model is then inverted to generate low-power multipliers. - (\textit{1 paper (wip).})\vspace{-2pt}}
+        \end{itemize}
         \resumeItem{ML for Advanced Synthesis}
-          {Developed a predictor-driven synthesis framework achieving up to 21\% higher quality and 14x faster execution, advancing industry benchmarks in chip design optimization - (\textit{1 paper})\vspace{-2pt}}
-        \resumeItem{ML Workload Characterization on GPUs}
-          {Built a simulator that would map (tiling and multi-core scheduling) tensor operations onto a multi-dimensional tensor processing accelerator (Huawei's Ascend "Cube"). Used the simulator to characterize the energy efficiency of some tiling and scheduling patterns and proposed software-level solutions to reduce power consumption of the "Cube".\vspace{-2pt}}
-      \resumeItemListEnd
-      \vspace{-10pt}
+          {Developed a predictor-driven synthesis framework achieving up to 21\% QoR improvement and 14x faster execution, significantly advancing chip design optimization methods. - (\textit{2 papers.})\vspace{-2pt}}
+        \resumeItemTitleAndStart{Characterization of ML Workloads Acceleration}
+          \item{Developed a simulation platform to accurately map (tiling and multi-core scheduling) tensor operations onto Huawei's Ascend "Cube" tensor accelerator.\vspace{-2pt}}
+          \item{Utilized the simulator to benchmark tensor reshaping and vector reordering strategies, proposing novel software-level optimizations that effectively reduce power consumption.\vspace{-2pt}}
+        \end{itemize}
+        % {Built a simulator that would map (tiling and multi-core scheduling) tensor operations onto a multi-dimensional tensor processing accelerator (Huawei's Ascend "Cube"). Used the simulator to characterize the energy efficiency of some tiling and scheduling patterns and proposed software-level solutions to reduce power consumption of the "Cube".\vspace{-2pt}}
+        \resumeItemListEnd
+        % \vspace{-10pt}
           
     \resumeSubheading
       {SONY}{Zurich, Switzerland}
-      {Senior AI Research Engineer - Hardware Aware Computer Vision}{Aug 2023 - Apr 2024}
+      {Senior AI Research Engineer}{Aug 2023 - Apr 2024}
       \resumeItemListStart
         \resumeItemTitleAndStart{Sparsity Exploitation in Transformers}
-          \item{Engineered an asynchronous PointNet-based embedding, enabling continuous spatio-temporal data conversion into dense tensors for seamless, ongoing feeding of Transformer models - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
-          \item{Designed an NPU-compatible sparse scaled-dot-product-attention per-block module for highly efficient sparse attention in Transformers, achieving more than 50\% FLOPs reduction during inference and higher accuracy.\vspace{-2pt}}
+          \item{Engineered an asynchronous PointNet-based embedding, enabling continuous spatio-temporal data conversion into dense tensors for seamless, continuous feeding of Transformer models. - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
+          \item{Designed an NPU-compatible, block-wise sparse scaled dot-product attention module for highly efficient flash attention in Transformers, achieving more than 50\% FLOPs reduction during inference and higher accuracy.\vspace{-2pt}}
         \end{itemize}
         
         \resumeItem{SLAM Enhanced AI Training}
-          {Enhanced performance by incorporating a cutting-edge SLAM pipeline for multi-modal training process, achieving 6x faster model convergence and a 15\% boost in accuracy.}
+          {Enhanced performance by incorporating a cutting-edge SLAM pipeline for multi-modal training process, achieving 6x faster model convergence and a 15\% accuracy improvement.}
         % \resumeItem{FPGA Design Innovator - FPGA Design Lead}
           % {Implemented a state-of-the-art strategy in FPGA for per-block sparse attention, yielding over 20x increase in energy efficiency compared to standard GPU processes.}
         % \resumeItem{Technical Supervision}
@@ -195,10 +201,10 @@
       \resumeItemListEnd
           
     \resumeSubSubheading
-      {AI Research Engineer - Hardware Aware Computer Vision}{June 2022 - Aug 2023}
+      {AI Research Engineer}{June 2022 - Aug 2023}
       \resumeItemListStart
         \resumeItemTitleAndStart{SW/HW Co-Design Automation with Neural Architecture Search}
-          \item{Built an AI-driven, Hardware-Aware Neural Architecture Search framework. Enabled to automatically reduce model to 8\% FLOP cost while losing only 4\% relative accuracy.\vspace{-2pt}}
+          \item{Built an AI-driven, Hardware-Aware Neural Architecture Search framework. Reduced model FLOP cost to 8\% of the original, with only a 4\% accuracy loss.\vspace{-2pt}}
           \item{Integrated a Design Space Exploration software in the NAS loop to estimate energy and latency of model execution.\vspace{-2pt}}
         \end{itemize}
         \resumeItem{Transformer Hardware Acceleration Survey}
@@ -207,7 +213,7 @@
         \resumeItemTitleAndStart{Vision Transformer for Image Generation}
           \item{Implemented an AI model leveraging CNN and Transformer architectures to realize advanced frame generation. - (\textit{1 patent.})\vspace{-2pt}}
           \item{Built a live demo of the model, from image sensor to application. This led to 2 major collaborations with other teams.\vspace{-2pt}}
-          \item{Converted the model as an API to simplify sharing across teams and projects.\vspace{-2pt}}
+          \item{Packaged the model as an API to simplify sharing across teams and projects.\vspace{-2pt}}
         \end{itemize}
         \resumeItem{Software Maintainer}
           {Responsible for the CI of a few Python libraries shared among teams.}
@@ -215,12 +221,12 @@
 
     \resumeSubheading
       {STMicroelectronics}{Grenoble, France}
-      {Digital IC Design Engineer - Energy Efficient Systems-on-Chip}{Apr 2021 - May 2022}
+      {Digital IC Design Engineer}{Apr 2021 - May 2022}
       \resumeItemListStart
         \resumeItemTitleAndStart{CPU Design and Automation}
           % {Built Trace and Debug subsystem for ARM's Armv9-A SoC from scratch and created a Python library for automated component assembly.}
           \item{Created a toolbox to automate component assembly of the Trace and Debug subsystem with ARM's Armv9-A SoC modules.\vspace{-2pt}}
-          \item{Developed an RTL generator for STM32 MPU SoC, streamlining the design of a multi-clock domain reset and clock control for over 300 peripherals.\vspace{-2pt}}
+          \item{Developed an RTL generator for STM32 MPU SoC, streamlining the design of a multi-clock-domain reset and clock-control system for over 300 peripherals.\vspace{-2pt}}
         \end{itemize}
         \resumeItem{CPU Benchmarking}
           {Conducted CoreMark benchmarking on a multi-core MPU SoC, highlighting significant performance gains (up to 6x) through compiler updates.}
@@ -232,11 +238,11 @@
       {CEA LETI}{Grenoble, France}
       {Doctoral Researcher on AI and Digital IC Design}{Apr 2018 - Apr 2021}
       \resumeItemListStart
-        \resumeItem{Neuromorphic Hardware Analysis}
-          {Conducted a comprehensive bibliographic study on scalable, multi-chip, distributed neuromorphic hardware, leading to a widely cited publication in ACM JETC. - (\textit{1 paper}.)}
+        \resumeItem{Neuromorphic Hardware Survey}
+          {Conducted a comprehensive literature review on scalable, distributed, multi-chip neuromorphic hardware, leading to a widely cited publication in ACM JETC. - (\textit{1 paper}.)}
         \resumeItem{ULP NPU Design}
-          % {Built (RTL design, synthesis and layout) a 28nm FDSOI ultra-low power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP) and enabling seamless Event-Based pixel grid integration. - (\textit{1 paper, 2 patents.})}
-          {Built (RTL design, synthesis and layout) an ultra-low power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP in 28nm) and enabling seamless integration for 3D-stacked imagers. - (\textit{1 paper, 2 patents.})}
+          % {Built (RTL design, synthesis and layout) a 28nm FDSOI ultra-low-power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP) and enabling seamless Event-Based pixel grid integration. - (\textit{1 paper, 2 patents.})}
+          {Built (RTL design, synthesis and layout) an ultra-low-power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP in 28nm) and enabling seamless integration for 3D-stacked imagers. - (\textit{1 paper, 2 patents.})}
         \resumeItem{EB VIO/SLAM Pipeline and Object Detection Innovation}
           {Developed an Event-Based VIO/SLAM pipeline with ego-motion compensation, leading to a solution for detecting moving objects. - (\textit{1 patent.})}
         % \resumeItem{Specialized Dataset Development}
@@ -282,13 +288,13 @@
 %
 %--------PROGRAMMING SKILLS------------
 \section{Skills}
-\begin{itemize}[leftmargin=*, topsep=0pt]
+\begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
    \item
      \textbf{Languages}{: Python, C/C++, SystemVerilog, MATLAB, VHDL}\vspace{-10pt}
    \item
-     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, CUDA, OpenCV, ROS, Dash, Flask}\vspace{-10pt}
+     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, CUDA, OpenCV, ROS, Dash, Flask, concurrent}\vspace{-10pt}
    \item
-     \textbf{Hardware \& EDA Tool}{: Yosys, OpenRoad, Verilator, Synopsys DC, Cadence Innovus}\vspace{-10pt}
+     \textbf{Hardware \& EDA Tools}{: Yosys, OpenRoad, Verilator, Synopsys DC, Cadence Innovus}\vspace{-10pt}
    \item
      \textbf{Software \& DevOps}{: Docker, Git, Continuous Integration (CI)}
   \end{itemize}
@@ -306,7 +312,7 @@
 
 %-----------EDUCATION-----------------
 \section{Education}
-  \begin{itemize}[leftmargin=*, topsep=0pt]
+  \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
     \resumeEducationSubheading
       {Grenoble Alpes University}{Grenoble, France}
       {Ph.D. in Computer Science}{Apr 2018 -- Apr 2021}
@@ -325,7 +331,7 @@
 %-------------Patents&Publications------------------
 
 \section{Patents}
-\begin{itemize}[leftmargin=*, topsep=0pt]
+\begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
   \item M. Bouvier, et al., ``Apparatus, method, and computer program for processing visual event data,'' \href{https://worldwide.espacenet.com/patent/search/family/085781790/publication/WO2024200170A1?q=Maxence%20Bouvier}{\textit{WO2024200170A1}}, 2024.
   \vspace{-10pt}
   \item M. Bouvier, A. Valentian, ``Observation system and associated observation method,'' \href{https://worldwide.espacenet.com/patent/search/family/081324998/publication/US2023196779A1?q=Maxence%20Bouvier}{\textit{US2023196779A1}}, 2023.
@@ -339,14 +345,14 @@
 
 
 \section{Publications}
-\begin{itemize}[leftmargin=*, topsep=0pt]
+\begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
   \item F. Arnold, et al., \href{https://arxiv.org/abs/2502.17936}{``Late Breaking Results: The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration,'' \textit{2025 62nd ACM/IEEE Design Automation Conference (DAC)}}, 2025.
   \vspace{-10pt}
   \item C. M. Turrero, et al., \href{https://dl.acm.org/doi/abs/10.5555/3692070.3694066}{``ALERT-Transformer: Bridging Asynchronous and Synchronous Machine Learning for Real-Time Event-based Spatio-Temporal Data,'' \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}}, 2024.
   \vspace{-10pt}
-  \item M. Bouvier, et al., ``Scalable pitch-constrained neural processing unit for 3D integration with event-based imagers,'' \textit{2021 58th ACM/IEEE Design Automation Conference (DAC)}, 2021.
+  \item M. Bouvier, et al., \href{https://ieeexplore.ieee.org/document/9586099}{``Scalable pitch-constrained neural processing unit for 3D integration with event-based imagers,'' \textit{2021 58th ACM/IEEE Design Automation Conference (DAC)}}, 2021.
   \vspace{-10pt}
-  \item M. Bouvier, \href{https://theses.hal.science/tel-03405455/}{``Study and design of an energy-efficient perception module combining event-based image sensors and spiking neural network with 3D integration technologies,'' \textit{Ph.D. Dissertation, Université Grenoble Alpes}}, 2021.
+  \item M. Bouvier, \href{https://theses.hal.science/tel-03405455/}{``Study and design of an energy-efficient perception module combining event-based image sensors and spiking neural network with 3D integration technologies,'' \textit{Ph.D. Dissertation, Universit\'e Grenoble Alpes}}, 2021.
   \vspace{-10pt}
   \item M. Bouvier, et al., \href{https://dl.acm.org/doi/abs/10.1145/3304103}{``Spiking neural networks hardware implementations and challenges: A survey,'' \textit{ACM Journal on Emerging Technologies in Computing Systems (JETC)}}, 2019.
   \vspace{-10pt}
