@@ -159,21 +159,22 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Huawei}{Zurich, Switzerland}
-      {Research Scientist}{May 2024 - Present}
+      {Research Scientist | AI for chip design}{May 2024 - Present}
       \resumeItemListStart
         \resumeItem{Team Leader}
           {Conducted recruitment of multi-disciplinary experts and led us to success on the project's objectives of proposing solutions to reduce switching activity (and ultimately power consumption) inside Huawei's GPUs.\vspace{-2pt}}
         \resumeItem{ML for Chip Design}
           {Designed a pipeline for generating low switching activity multiplier units in Verilog by inverting a transformer-based network trained to predict the average switching activity of millions of designs. Automated the synthesis and simulation of million of designs using containerized open source EDA tools (Yosys, OpenRoad, Verilator) - (\textit{1 paper (WIP)})\vspace{-2pt}}
         \resumeItem{ML for Advanced Synthesis}
-          {Built a predictor-based synthesis framework that demonstrated state of the art quality of results by improving previous method by up to 20.94\% in synthesis quality but by up to 14x in overall speed - (\textit{1 paper})\vspace{-2pt}}
+          {Developed a predictor-driven synthesis framework achieving up to 21\% higher quality and 14x faster execution, advancing industry benchmarks in chip design optimization - (\textit{1 paper})\vspace{-2pt}}
         \resumeItem{ML Workload Characterization on GPUs}
           {Built a simulator that would map (tiling and multi-core scheduling) tensor operations onto a multi-dimensional tensor processing accelerator (Huawei's Ascend "Cube"). Used the simulator to characterize the energy efficiency of some tiling and scheduling patterns and proposed software-level solutions to reduce power consumption of the "Cube".\vspace{-2pt}}
       \resumeItemListEnd
+      \vspace{-10pt}
           
     \resumeSubheading
       {SONY}{Zurich, Switzerland}
-      {Senior AI Research Engineer}{Aug 2023 - Apr 2024}
+      {Senior AI Research Engineer - Hardware Aware Computer Vision}{Aug 2023 - Apr 2024}
       \resumeItemListStart
         \resumeItemTitleAndStart{Sparsity Exploitation in Transformers}
           \item{Engineered an asynchronous PointNet-based embedding, enabling continuous spatio-temporal data conversion into dense tensors for seamless, ongoing feeding of Transformer models - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
@@ -194,7 +195,7 @@
       \resumeItemListEnd
           
     \resumeSubSubheading
-      {AI Research Engineer}{June 2022 - Aug 2023}
+      {AI Research Engineer - Hardware Aware Computer Vision}{June 2022 - Aug 2023}
       \resumeItemListStart
         \resumeItemTitleAndStart{SW/HW Co-Design Automation with Neural Architecture Search}
           \item{Built an AI-driven, Hardware-Aware Neural Architecture Search framework. Enabled to automatically reduce model to 8\% FLOP cost while losing only 4\% relative accuracy.\vspace{-2pt}}
@@ -214,7 +215,7 @@
 
     \resumeSubheading
       {STMicroelectronics}{Grenoble, France}
-      {Hardware Design Engineer}{Apr 2021 - May 2022}
+      {Digital IC Design Engineer - Energy Efficient Systems-on-Chip}{Apr 2021 - May 2022}
       \resumeItemListStart
         \resumeItemTitleAndStart{CPU Design and Automation}
           % {Built Trace and Debug subsystem for ARM's Armv9-A SoC from scratch and created a Python library for automated component assembly.}
@@ -229,7 +230,7 @@
 
     \resumeSubheading
       {CEA LETI}{Grenoble, France}
-      {Doctoral Researcher on AI and Hardware Design}{Apr 2018 - Apr 2021}
+      {Doctoral Researcher on AI and Digital IC Design}{Apr 2018 - Apr 2021}
       \resumeItemListStart
         \resumeItem{Neuromorphic Hardware Analysis}
           {Conducted a comprehensive bibliographic study on scalable, multi-chip, distributed neuromorphic hardware, leading to a widely cited publication in ACM JETC. - (\textit{1 paper}.)}
@@ -244,7 +245,7 @@
 
     \resumeSubheading
       {IBM Research}{Yorktown Heights, NY, USA}
-      {Intern Hardware Engineer}{Feb 2017 - Aug 2017}
+      {Intern IC Design Engineer}{Feb 2017 - Aug 2017}
       \resumeItemListStart
         \item\small{Automated wafer-scale memory device characterization, reducing execution time from days to hours.\vspace{-2pt}}
         \item\small{Contributed to the optimization of PCM technologies for Compute-in-Memory-based AI acceleration. - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
@@ -283,11 +284,13 @@
 \section{Skills}
 \begin{itemize}[leftmargin=*, topsep=0pt]
    \item
-     \textbf{Languages}{: Python, C, C++, MATLAB, SystemVerilog, VHDL, LaTeX}\vspace{-10pt}
+     \textbf{Languages}{: Python, C/C++, SystemVerilog, MATLAB, VHDL}\vspace{-10pt}
    \item
-     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, Numpy, Dash, Pandas, CocoTB, ROS, OpenCV, CUDA}\vspace{-10pt}
+     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, CUDA, OpenCV, ROS, Dash, Flask}\vspace{-10pt}
    \item
-     \textbf{Softwares}{: Git, CI, Docker, OSS EDA (Yosys, OpenRoad, Verilator), EDA (Cadence, Synopsys, Mentor), PowerPoint}\vspace{-10pt}
+     \textbf{Hardware \& EDA Tool}{: Yosys, OpenRoad, Verilator, Synopsys DC, Cadence Innovus}\vspace{-10pt}
+   \item
+     \textbf{Software \& DevOps}{: Docker, Git, Continuous Integration (CI)}
   \end{itemize}
 
 % Programming and Development
@@ -315,7 +318,40 @@
       {Grenoble Institute of Technology}{Grenoble, France}
       {B.Eng. in Electronics}{Sep 2012 -- Sep 2015}
   \end{itemize}
+  \vspace{10pt}
 
+
+
+%-------------Patents&Publications------------------
+
+\section{Patents}
+\begin{itemize}[leftmargin=*, topsep=0pt]
+  \item M. Bouvier, et al., ``Apparatus, method, and computer program for processing visual event data,'' \href{https://worldwide.espacenet.com/patent/search/family/085781790/publication/WO2024200170A1?q=Maxence%20Bouvier}{\textit{WO2024200170A1}}, 2024.
+  \vspace{-10pt}
+  \item M. Bouvier, A. Valentian, ``Observation system and associated observation method,'' \href{https://worldwide.espacenet.com/patent/search/family/081324998/publication/US2023196779A1?q=Maxence%20Bouvier}{\textit{US2023196779A1}}, 2023.
+  \vspace{-10pt}
+  \item F. Carta, et al., ``Pulsing synaptic devices based on phase-change memory to increase the linearity in weight update,'' \href{https://worldwide.espacenet.com/patent/search/family/082100862/publication/US11557343B2?q=Maxence%20Bouvier}{\textit{US11557343B2}}, 2023.
+  \vspace{-10pt}
+  \item M. Bouvier, A. Bige, ``Device for compensating for movement of an event sensor, and associated systems and methods,'' \href{https://worldwide.espacenet.com/patent/search/family/076730579/publication/WO2022117535A1?q=Maxence%20Bouvier}{\textit{WO2022117535A1}}, 2022.
+  \vspace{-10pt}
+  \item M. Bouvier, A. Valentian, ``Device for compensating movement of an event-driven sensor and associated observation system and method,'' \href{https://worldwide.espacenet.com/patent/search/family/074668916/publication/US2022101006A1?q=Maxence%20Bouvier}{\textit{US2022101006A1}}, 2022.
+\end{itemize}
+
+
+\section{Publications}
+\begin{itemize}[leftmargin=*, topsep=0pt]
+  \item F. Arnold, et al., \href{https://arxiv.org/abs/2502.17936}{``Late Breaking Results: The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration,'' \textit{2025 62nd ACM/IEEE Design Automation Conference (DAC)}}, 2025.
+  \vspace{-10pt}
+  \item C. M. Turrero, et al., \href{https://dl.acm.org/doi/abs/10.5555/3692070.3694066}{``ALERT-Transformer: Bridging Asynchronous and Synchronous Machine Learning for Real-Time Event-based Spatio-Temporal Data,'' \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}}, 2024.
+  \vspace{-10pt}
+  \item M. Bouvier, et al., ``Scalable pitch-constrained neural processing unit for 3D integration with event-based imagers,'' \textit{2021 58th ACM/IEEE Design Automation Conference (DAC)}, 2021.
+  \vspace{-10pt}
+  \item M. Bouvier, \href{https://theses.hal.science/tel-03405455/}{``Study and design of an energy-efficient perception module combining event-based image sensors and spiking neural network with 3D integration technologies,'' \textit{Ph.D. Dissertation, Université Grenoble Alpes}}, 2021.
+  \vspace{-10pt}
+  \item M. Bouvier, et al., \href{https://dl.acm.org/doi/abs/10.1145/3304103}{``Spiking neural networks hardware implementations and challenges: A survey,'' \textit{ACM Journal on Emerging Technologies in Computing Systems (JETC)}}, 2019.
+  \vspace{-10pt}
+  \item P. Vivet, et al., \href{https://ieeexplore.ieee.org/abstract/document/8714886/}{``Advanced 3D technologies and architectures for 3D smart image sensors,'' \textit{2019 Design, Automation \& Test in Europe Conference \& Exhibition (DATE)}}, 2019.
+\end{itemize}
 
 
 %-------------------------------------------
