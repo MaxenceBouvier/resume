@@ -158,8 +158,22 @@
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
+      {Huawei}{Zurich, Switzerland}
+      {Research Scientist}{May 2024 - Present}
+      \resumeItemListStart
+        \resumeItem{Team Leader}
+          {Conducted recruitment of multi-disciplinary experts and led us to success on the project's objectives of proposing solutions to reduce switching activity (and ultimately power consumption) inside Huawei's GPUs.\vspace{-2pt}}
+        \resumeItem{ML for Chip Design}
+          {Designed a pipeline for generating low switching activity multiplier units in Verilog by inverting a transformer-based network trained to predict the average switching activity of millions of designs. Automated the synthesis and simulation of million of designs using containerized open source EDA tools (Yosys, OpenRoad, Verilator) - (\textit{1 paper (WIP)})\vspace{-2pt}}
+        \resumeItem{ML for Advanced Synthesis}
+          {Built a predictor-based synthesis framework that demonstrated state of the art quality of results by improving previous method by up to 20.94\% in synthesis quality but by up to 14x in overall speed - (\textit{1 paper})\vspace{-2pt}}
+        \resumeItem{ML Workload Characterization on GPUs}
+          {Built a simulator that would map (tiling and multi-core scheduling) tensor operations onto a multi-dimensional tensor processing accelerator (Huawei's Ascend "Cube"). Used the simulator to characterize the energy efficiency of some tiling and scheduling patterns and proposed software-level solutions to reduce power consumption of the "Cube".\vspace{-2pt}}
+      \resumeItemListEnd
+          
+    \resumeSubheading
       {SONY}{Zurich, Switzerland}
-      {Senior AI Research Engineer}{Aug 2023 - Present}
+      {Senior AI Research Engineer}{Aug 2023 - Apr 2024}
       \resumeItemListStart
         \resumeItemTitleAndStart{Sparsity Exploitation in Transformers}
           \item{Engineered an asynchronous PointNet-based embedding, enabling continuous spatio-temporal data conversion into dense tensors for seamless, ongoing feeding of Transformer models - (\textit{1 paper, 1 patent.})\vspace{-2pt}}
@@ -271,9 +285,9 @@
    \item
      \textbf{Languages}{: Python, C, C++, MATLAB, SystemVerilog, VHDL, LaTeX}\vspace{-10pt}
    \item
-     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, Numpy, Pandas, ROS, OpenCV, CUDA}\vspace{-10pt}
+     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, Numpy, Dash, Pandas, CocoTB, ROS, OpenCV, CUDA}\vspace{-10pt}
    \item
-     \textbf{Softwares}{: Git, GitLab CI, EDA (Cadence, Synopsys, Mentor), VSCode, PowerPoint Expert}\vspace{-10pt}
+     \textbf{Softwares}{: Git, CI, Docker, OSS EDA (Yosys, OpenRoad, Verilator), EDA (Cadence, Synopsys, Mentor), PowerPoint}\vspace{-10pt}
   \end{itemize}
 
 % Programming and Development
@@ -295,6 +309,7 @@
       {Ph.D. in Computer Science}{Apr 2018 -- Apr 2021}
     \resumeEducationSubheading
       {EPFL}{Lausanne, Switzerland}
+      % {EPFL | Grenoble Alpes University}{Lausanne, Switzerland | Grenoble, France}
       {"M.Eng. in Electronics (Highest Honors)"}{Sep 2015 -- Sep 2017}
     \resumeEducationSubheading
       {Grenoble Institute of Technology}{Grenoble, France}
