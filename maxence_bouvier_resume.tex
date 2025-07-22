@@ -151,7 +151,7 @@
 %-----------CENTERED TEXT-----------------
 \begin{justify}
   % \small{Research scientist with 7+ years of experience with AI and Machine Learning at the intersection of hardware and software. Currently leading innovations in ML-powered chip design at Huawei. Expertise spans EDA automation, transformer-based AI models, and energy-efficient hardware accelerators. I am able to explain how to build a Tensor Processing Unit from the sand and how to program it.}
-  \small{AI \& HW Research Scientist with 7+ years of experience in ML and Chip Design, currently leading innovations in ML-powered chip design at Huawei. Expertise spans ML for chip design and logic synthesis optimization, EDA automation, energy-efficient HW accelerators design, 2D/3D computer vision, transformer-based networks, large-scale workload distribution on multi-node servers.}
+  \small{AI \& HW Research Scientist with 7+ years of experience in ML and Chip Design, currently leading innovations in ML for EDA at Huawei. Expertise spans ML for chip design and logic synthesis optimization, EDA automation, energy-efficient HW accelerators design, 2D/3D computer vision, transformer-based networks, large-scale workload distribution on multi-node servers.}
 \end{justify}\vspace{-10pt}
 
 
@@ -166,17 +166,18 @@
         \resumeItem{Team Leader}
           {Built and led a multidisciplinary team of experts to develop innovative solutions for reducing switching activity and power consumption in Huawei's GPUs.\vspace{-2pt}}
         \resumeItemTitleAndStart{ML for Chip Design}
-        \item{Designed and developed an automated ML-based framework to generate multipliers with reduced switching activity and lower power consumption.\vspace{-2pt}}
-        \item{Deployed synthesis and simulation of millions of designs using containerized (Docker), open source EDA tools and commercial EDA tools on a multi-node SLURM cluster.\vspace{-2pt}}
+        \item{Designed and developed an automated ML-based framework for iterative generation of multiplier circuits with reduced switching activity and lower power consumption. The full pipeline was up and running in less than three months, working alone.\vspace{-2pt}}
+        \item{Deployed synthesis and simulation of millions of designs using containerized (Docker), open source EDA tools on a multi-node SLURM cluster. Adapted the framework for commercial EDA tools.\vspace{-2pt}}
         \item{Proved that Network Inversion is superior to other state of the art method for design generation (and design space exploration).\vspace{-2pt}}
         \item{Results: we found multiplier encodings that reduce power consumption by approximately 10\% compared to conventional two's complement implementations. (\textit{1 paper.})\vspace{-2pt}}
         \end{itemize}
         \resumeItem{ML for Advanced Synthesis}
-          {Developed a predictor-driven Logic Synthesis Optimization framework achieving up to 21\% QoR improvement and 14× faster execution. - (\textit{2 papers.})\vspace{-2pt}}
+        {Developed a predictor-driven Logic Synthesis Optimization framework achieving up to 21\% QoR improvement and 14× faster execution. - (\textit{2 papers.})\vspace{-2pt}}
         \resumeItemTitleAndStart{Characterization of ML Workloads Acceleration}
-          \item{Developed a simulation platform to accurately map (tiling and multi-core scheduling) tensor operations onto Huawei's Ascend "Cube" tensor accelerator.\vspace{-2pt}}
-          \item{Utilized the simulator to benchmark tensor reshaping and vector reordering strategies, proposing novel software-level optimizations that effectively reduce power consumption.\vspace{-2pt}}
+        \item{Developed a simulation platform to accurately map (tiling and multi-core scheduling) tensor operations onto Huawei's Ascend "Cube" tensor accelerator.\vspace{-2pt}}
+        \item{Exploited the simulator to benchmark tensor reshaping and vector reordering strategies, proposing novel software-level optimizations that effectively reduce power consumption.\vspace{-2pt}}
         \end{itemize}
+        \resumeItem{Conference Attendance} {2025 DAC, 2025 International Conference on LLM-Aided Design (ICLAD).\vspace{-2pt}}
         % {Built a simulator that would map (tiling and multi-core scheduling) tensor operations onto a multi-dimensional tensor processing accelerator (Huawei's Ascend "Cube"). Used the simulator to characterize the energy efficiency of some tiling and scheduling patterns and proposed software-level solutions to reduce power consumption of the "Cube".\vspace{-2pt}}
         \resumeItemListEnd
         % \vspace{-10pt}
@@ -220,21 +221,24 @@
         \end{itemize}
         \resumeItem{Software Maintainer}
           {Responsible for the CI of a few Python libraries shared among teams.}
-      \resumeItemListEnd
+        \resumeItem{Conference Attendance} {2023 ISSCC.}
 
-    \resumeSubheading
-      {STMicroelectronics}{Grenoble, France}
-      {Digital IC Design Engineer}{Apr 2021 - May 2022}
-      \resumeItemListStart
-        \resumeItemTitleAndStart{CPU Design and Automation}
-          % {Built Trace and Debug subsystem for ARM's Armv9-A SoC from scratch and created a Python library for automated component assembly.}
-          \item{Created a toolbox to automate component assembly of the Trace and Debug subsystem with ARM's Armv9-A SoC modules.\vspace{-2pt}}
-          \item{Developed an RTL generator for STM32 MPU SoC, streamlining the design of a multi-clock-domain reset and clock-control system for over 300 peripherals.\vspace{-2pt}}
-        \end{itemize}
-        \resumeItem{CPU Benchmarking}
-          {Conducted CoreMark benchmarking on a multi-core MPU SoC, highlighting significant performance gains (up to 6x) through compiler updates.}
-        % \resumeItem{Training}
-          % {Gained specialized training on the latest ARM IPs, focusing on V9 architecture and AMBA5 protocols, enhancing technical proficiency in cutting-edge CPU architecture.}
+\resumeItemListEnd
+
+\resumeSubheading
+{STMicroelectronics}{Grenoble, France}
+{Digital IC Design Engineer}{Apr 2021 - May 2022}
+\resumeItemListStart
+\resumeItemTitleAndStart{CPU Design and Automation}
+% {Built Trace and Debug subsystem for ARM's Armv9-A SoC from scratch and created a Python library for automated component assembly.}
+\item{Created a toolbox to automate component assembly of the Trace and Debug subsystem with ARM's Armv9-A SoC modules.\vspace{-2pt}}
+\item{Developed an RTL generator for STM32 MPU SoC, streamlining the design of a multi-clock-domain reset and clock-control system for over 300 peripherals.\vspace{-2pt}}
+\end{itemize}
+\resumeItem{CPU Benchmarking}
+{Conducted CoreMark benchmarking on a multi-core MPU SoC, highlighting significant performance gains (up to 6x) through compiler updates.}
+% \resumeItem{Training}
+% {Gained specialized training on the latest ARM IPs, focusing on V9 architecture and AMBA5 protocols, enhancing technical proficiency in cutting-edge CPU architecture.}
+\resumeItem{Conference Attendance} {2021 ISSCC.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -248,6 +252,7 @@
           {Built (RTL design, synthesis and layout) an ultra-low-power sparse AI accelerator, setting energy efficiency records (2.86pJ/OP in 28nm) and enabling seamless integration for 3D-stacked imagers. - (\textit{1 paper, 2 patents.})}
         \resumeItem{EB VIO/SLAM Pipeline and Object Detection Innovation}
           {Developed an Event-Based VIO/SLAM pipeline with ego-motion compensation, leading to a solution for detecting moving objects. - (\textit{1 patent.})}
+        \resumeItem{Conference Attendance} {2019 ISSCC, 2021 DAC.}
         % \resumeItem{Specialized Dataset Development}
         %   {Generated two unique datasets, one with Blender and another using CeleX-V imager, improving data accuracy and applicability.}
       \resumeItemListEnd
@@ -335,35 +340,39 @@
 
 \section{Patents}
 \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
-  \item M. Bouvier, et al., ``Apparatus, method, and computer program for processing visual event data,'' \href{https://worldwide.espacenet.com/patent/search/family/085781790/publication/WO2024200170A1?q=Maxence%20Bouvier}{\textit{WO2024200170A1}}, 2024.
-  \vspace{-10pt}
-  \item M. Bouvier, A. Valentian, ``Observation system and associated observation method,'' \href{https://worldwide.espacenet.com/patent/search/family/081324998/publication/US2023196779A1?q=Maxence%20Bouvier}{\textit{US2023196779A1}}, 2023.
-  \vspace{-10pt}
-  \item F. Carta, et al., ``Pulsing synaptic devices based on phase-change memory to increase the linearity in weight update,'' \href{https://worldwide.espacenet.com/patent/search/family/082100862/publication/US11557343B2?q=Maxence%20Bouvier}{\textit{US11557343B2}}, 2023.
-  \vspace{-10pt}
-  \item M. Bouvier, A. Bige, ``Device for compensating for movement of an event sensor, and associated systems and methods,'' \href{https://worldwide.espacenet.com/patent/search/family/076730579/publication/WO2022117535A1?q=Maxence%20Bouvier}{\textit{WO2022117535A1}}, 2022.
-  \vspace{-10pt}
-  \item M. Bouvier, A. Valentian, ``Device for compensating movement of an event-driven sensor and associated observation system and method,'' \href{https://worldwide.espacenet.com/patent/search/family/074668916/publication/US2022101006A1?q=Maxence%20Bouvier}{\textit{US2022101006A1}}, 2022.
+  \begin{small}
+    \item M. Bouvier, et al., ``Apparatus, method, and computer program for processing visual event data,'' \href{https://worldwide.espacenet.com/patent/search/family/085781790/publication/WO2024200170A1?q=Maxence%20Bouvier}{\textit{WO2024200170A1}}, 2024.
+    \vspace{-10pt}
+    \item M. Bouvier, A. Valentian, ``Observation system and associated observation method,'' \href{https://worldwide.espacenet.com/patent/search/family/081324998/publication/US2023196779A1?q=Maxence%20Bouvier}{\textit{US2023196779A1}}, 2023.
+    \vspace{-10pt}
+    \item F. Carta, et al., ``Pulsing synaptic devices based on phase-change memory to increase the linearity in weight update,'' \href{https://worldwide.espacenet.com/patent/search/family/082100862/publication/US11557343B2?q=Maxence%20Bouvier}{\textit{US11557343B2}}, 2023.
+    \vspace{-10pt}
+    \item M. Bouvier, A. Bige, ``Device for compensating for movement of an event sensor, and associated systems and methods,'' \href{https://worldwide.espacenet.com/patent/search/family/076730579/publication/WO2022117535A1?q=Maxence%20Bouvier}{\textit{WO2022117535A1}}, 2022.
+    \vspace{-10pt}
+    \item M. Bouvier, A. Valentian, ``Device for compensating movement of an event-driven sensor and associated observation system and method,'' \href{https://worldwide.espacenet.com/patent/search/family/074668916/publication/US2022101006A1?q=Maxence%20Bouvier}{\textit{US2022101006A1}}, 2022.
+  \end{small}
 \end{itemize}
 
 
 \section{Publications}
 \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
-  \item M. Bouvier, et al., ``GENIAL: \textbf{G}enerative Design Space \textbf{E}xploration via \textbf{N}etwork \textbf{I}nversion for Low Power \textbf{A}lgorithmic \textbf{L}ogic Units,'' \textit{Under Review}, 2025.
-  \vspace{-10pt}
-  \item F. Arnold, et al., ``Explicit Sign-Magnitude Encoders Enable Power-Efficient Multipliers,'' \textit{International Workshop on Logic and Synthesis}, 2025.
-  \vspace{-10pt}
-  \item F. Arnold, et al., \href{https://arxiv.org/abs/2502.17936}{``The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration,'' \textit{62nd ACM/IEEE Design Automation Conference (DAC) (Poster)}}, 2025.
-  \vspace{-10pt}
-  \item C. M. Turrero, et al., \href{https://dl.acm.org/doi/abs/10.5555/3692070.3694066}{``ALERT-Transformer: Bridging Asynchronous and Synchronous Machine Learning for Real-Time Event-based Spatio-Temporal Data,'' \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}}, 2024.
-  \vspace{-10pt}
-  \item M. Bouvier, et al., \href{https://ieeexplore.ieee.org/document/9586099}{``Scalable pitch-constrained neural processing unit for 3D integration with event-based imagers,'' \textit{2021 58th ACM/IEEE Design Automation Conference (DAC)}}, 2021.
-  \vspace{-10pt}
-  \item M. Bouvier, \href{https://theses.hal.science/tel-03405455/}{``Study and design of an energy-efficient perception module combining event-based image sensors and spiking neural network with 3D integration technologies,'' \textit{Ph.D. Dissertation, Universit\'e Grenoble Alpes}}, 2021.
-  \vspace{-10pt}
-  \item M. Bouvier, et al., \href{https://dl.acm.org/doi/abs/10.1145/3304103}{``Spiking neural networks hardware implementations and challenges: A survey,'' \textit{ACM Journal on Emerging Technologies in Computing Systems (JETC)}}, 2019.
-  \vspace{-10pt}
-  \item P. Vivet, et al., \href{https://ieeexplore.ieee.org/abstract/document/8714886/}{``Advanced 3D technologies and architectures for 3D smart image sensors,'' \textit{2019 Design, Automation \& Test in Europe Conference \& Exhibition (DATE)}}, 2019.
+  \begin{small}
+  \item M. Bouvier, et al., \href{https://maxencebouvier.xyz/files/GENIAL.pdf}{``\textbf{GENIAL: Generative Design Space Exploration via Network Inversion for Low Power Algorithmic Logic Units},''} \textit{Under Review}, 2025.
+  \vspace{-7pt}
+  \item F. Arnold, M. Bouvier, et al., \href{https://maxencebouvier.xyz/files/IWLS.pdf}{``\textbf{Explicit Sign-Magnitude Encoders Enable Power-Efficient Multipliers},''} \textit{International Workshop on Logic and Synthesis}, 2025.
+  \vspace{-7pt}
+  \item F. Arnold*, M. Bouvier*, et al., \href{https://arxiv.org/abs/2502.17936}{``\textbf{The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration},''} \textit{62nd ACM/IEEE Design Automation Conference (DAC) (Poster)}, 2025.
+  \vspace{-7pt}
+  \item C. M. Turrero, M. Bouvier, et al., \href{https://dl.acm.org/doi/abs/10.5555/3692070.3694066}{``\textbf{ALERT-Transformer: Bridging Asynchronous and Synchronous Machine Learning for Real-Time Event-based Spatio-Temporal Data},''} \textit{Proceedings of the 41st ICML}, 2024.
+  \vspace{-7pt}
+  \item M. Bouvier, et al., \href{https://ieeexplore.ieee.org/document/9586099}{``\textbf{Scalable pitch-constrained neural processing unit for 3D integration with event-based imagers},''} \textit{2021 58th ACM/IEEE Design Automation Conference (DAC)}, 2021.
+  \vspace{-7pt}
+  \item M. Bouvier, \href{https://theses.hal.science/tel-03405455/}{``\textbf{Study and design of an energy-efficient perception module combining event-based image sensors and spiking neural network with 3D integration technologies},''} \textit{Ph.D. Dissertation, Universit\'e Grenoble Alpes}, 2021.
+  \vspace{-7pt}
+  \item M. Bouvier, et al., \href{https://dl.acm.org/doi/abs/10.1145/3304103}{``\textbf{Spiking neural networks hardware implementations and challenges: A survey},''} \textit{ACM Journal on Emerging Technologies in Computing Systems (JETC)}, 2019.
+  \vspace{-7pt}
+  \item P. Vivet, et al., \href{https://ieeexplore.ieee.org/abstract/document/8714886/}{``\textbf{Advanced 3D technologies and architectures for 3D smart image sensors},''} \textit{2019 Design, Automation \& Test in Europe Conference \& Exhibition (DATE)}, 2019.
+\end{small}
 \end{itemize}
 
 
