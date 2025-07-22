@@ -1,18 +1,44 @@
-# Archieve
-Archieve/
+# Editor backups
+*~
+*.bak
+*.swp
+*.DS_Store
 
-## Core latex/pdflatex auxiliary files:
+# LaTeX auxiliary files
 *.aux
-*.lof
+*.dvi
 *.log
-*.lot
-*.fls
 *.out
 *.toc
-*.fmt
-*.fot
-*.cb
-*.cb2
-.*.lb
+*.lot
+*.lof
 
-.env
+# Bibliography / Index / Glossary
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.glg
+
+# Glossaries / acronyms / list files
+*.acn
+*.acr
+*.alg
+
+# LaTeXmk / related
+*.fdb_latexmk
+*.fls
+*.run.xml
+*.ist
+
+# SyncTeX and intermediate files
+*.synctex.gz
+
+# Optional: remove PDF and other outputs
+# Uncomment if you don't want to keep generated PDFs under version control
+*/main.pdf
+# *.pdf
+# *.ps

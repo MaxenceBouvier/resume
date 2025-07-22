@@ -1,0 +1,27 @@
+{
+  "name": "latex-rsm-dev",
+  "build": {
+    "dockerfile": "./Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
+  ],
+  "remoteEnv": {
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "mhutchie.git-graph",
+        "streetsidesoftware.code-spell-checker",
+        "TabbyML.vscode-tabby",
+        "k-kuroguro.csv2latex"
+      ]
+    }
+  }
+}

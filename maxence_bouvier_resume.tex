@@ -166,11 +166,13 @@
         \resumeItem{Team Leader}
           {Built and led a multidisciplinary team of experts to develop innovative solutions for reducing switching activity and power consumption in Huawei's GPUs.\vspace{-2pt}}
         \resumeItemTitleAndStart{ML for Chip Design}
-          \item{Automated the synthesis and simulation of millions of designs using containerized, open source EDA tools.\vspace{-2pt}}
-          \item{Designed a transformer-based neural network for discovering low switching activity multiplier units. The model is trained to predict the power consumption of a multiplier unit. The model is then inverted to generate low-power multipliers. - (\textit{1 paper (wip).})\vspace{-2pt}}
+        \item{Designed and developed an automated ML-based framework to generate multipliers with reduced switching activity and lower power consumption.\vspace{-2pt}}
+        \item{Deployed synthesis and simulation of millions of designs using containerized (Docker), open source EDA tools and commercial EDA tools on a multi-node SLURM cluster.\vspace{-2pt}}
+        \item{Proved that Network Inversion is superior to other state of the art method for design generation (and design space exploration).\vspace{-2pt}}
+        \item{Results: we found multiplier encodings that reduce power consumption by approximately 10\% compared to conventional two's complement implementations. (\textit{1 paper.})\vspace{-2pt}}
         \end{itemize}
         \resumeItem{ML for Advanced Synthesis}
-          {Developed a predictor-driven synthesis framework achieving up to 21\% QoR improvement and 14x faster execution, significantly advancing chip design optimization methods. - (\textit{2 papers.})\vspace{-2pt}}
+          {Developed a predictor-driven Logic Synthesis Optimization framework achieving up to 21\% QoR improvement and 14× faster execution. - (\textit{2 papers.})\vspace{-2pt}}
         \resumeItemTitleAndStart{Characterization of ML Workloads Acceleration}
           \item{Developed a simulation platform to accurately map (tiling and multi-core scheduling) tensor operations onto Huawei's Ascend "Cube" tensor accelerator.\vspace{-2pt}}
           \item{Utilized the simulator to benchmark tensor reshaping and vector reordering strategies, proposing novel software-level optimizations that effectively reduce power consumption.\vspace{-2pt}}
@@ -295,7 +297,7 @@
    \item
      \textbf{Libraries}{: PyTorch, MLFlow, ONNX, CUDA, OpenCV, ROS, Dash, Flask, concurrent}\vspace{-10pt}
    \item
-     \textbf{Hardware \& EDA Tools}{: Yosys, OpenRoad, Verilator, Synopsys DC, Cadence Innovus}\vspace{-10pt}
+     \textbf{Hardware \& EDA Tools}{: CocoTB, Yosys, OpenRoad, ABC, Mockturtle, Verilator, Design Compiler, QuestaSim, PrimeTime Power, PowerPro, Innovus}\vspace{-10pt}
    \item
      \textbf{Software \& DevOps}{: Docker, Git, Continuous Integration (CI)}
   \end{itemize}
@@ -347,7 +349,11 @@
 
 \section{Publications}
 \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
-  \item F. Arnold, et al., \href{https://arxiv.org/abs/2502.17936}{``The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration,'' \textit{2025 62nd ACM/IEEE Design Automation Conference (DAC)}}, 2025.
+  \item M. Bouvier, et al., ``GENIAL: \textbf{G}enerative Design Space \textbf{E}xploration via \textbf{N}etwork \textbf{I}nversion for Low Power \textbf{A}lgorithmic \textbf{L}ogic Units,'' \textit{Under Review}, 2025.
+  \vspace{-10pt}
+  \item F. Arnold, et al., ``Explicit Sign-Magnitude Encoders Enable Power-Efficient Multipliers,'' \textit{International Workshop on Logic and Synthesis}, 2025.
+  \vspace{-10pt}
+  \item F. Arnold, et al., \href{https://arxiv.org/abs/2502.17936}{``The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration,'' \textit{62nd ACM/IEEE Design Automation Conference (DAC) (Poster)}}, 2025.
   \vspace{-10pt}
   \item C. M. Turrero, et al., \href{https://dl.acm.org/doi/abs/10.5555/3692070.3694066}{``ALERT-Transformer: Bridging Asynchronous and Synchronous Machine Learning for Real-Time Event-based Spatio-Temporal Data,'' \textit{Proceedings of the 41st International Conference on Machine Learning (ICML)}}, 2024.
   \vspace{-10pt}
