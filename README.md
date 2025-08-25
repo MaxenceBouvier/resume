@@ -1,4 +1,20 @@
+### Build Using `make_cv`
+
+Install the package in editable mode using [uv](https://docs.astral.sh/uv/):
+
+```sh
+uv pip install -e .
+```
+
+Then build a CV PDF by supplying the path to the LaTeX source file:
+
+```sh
+make_cv --cv_filepath maxence_bouvier_resume.tex
+```
+
 ### Build using Docker
+
+If you prefer to invoke Docker directly, you can run:
 
 ```sh
 docker build -t latex .
