@@ -42,3 +42,15 @@
 */main.pdf
 # *.pdf
 # *.ps
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+dist/
+build/
+*.egg-info/
+
+# Node modules
+node_modules/
