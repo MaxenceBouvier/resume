@@ -2,9 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Critical Rule
+## Critical Rules
 
-**NEVER manually edit the LaTeX file or website JSON files directly.** Always use the `make_cv` CLI to generate outputs from the CSV data sources in `cv_data/`.
+- **NEVER manually edit the LaTeX file or website JSON files directly.** Always use the `make_cv` CLI to generate outputs from the CSV data sources in `cv_data/`.
+- **Always exclude `private` tag** when generating both website and PDF CV outputs.
+- **Always exclude `sensitive` tag** when generating website outputs.
 
 ## Commands
 
@@ -12,14 +14,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Install in development mode
 uv pip install -e .
 
-# Generate LaTeX CV (optionally filtered by tags)
-make_cv latex --tags ml,hardware
+# Generate LaTeX CV (always exclude private)
+make_cv latex --exclude-tags private
+make_cv latex --tags ml,hardware --exclude-tags private
 
-# Generate website JSON data (with optional exclusion)
-make_cv website --exclude-tags sensitive
+# Generate website JSON data (always exclude private and sensitive)
+make_cv website --exclude-tags private,sensitive
 
-# Generate both outputs
-make_cv all --tags ml
+# Generate both outputs (exclude private for latex, private+sensitive for website)
+make_cv all --exclude-tags private,sensitive
 
 # List available tags across all CSV files
 make_cv tags
