@@ -105,6 +105,12 @@ def latex(
     help="Tags to filter by (OR logic). Usually not needed for website.",
 )
 @click.option(
+    "--exclude-tags",
+    "-x",
+    multiple=True,
+    help="Tags to exclude (if ANY match, entry is excluded). Use for sensitive data.",
+)
+@click.option(
     "--output-dir",
     "-o",
     type=click.Path(),
@@ -119,6 +125,7 @@ def latex(
 )
 def website(
     tags: tuple[str, ...],
+    exclude_tags: tuple[str, ...],
     output_dir: str | None,
     data_dir: str | None,
 ) -> None:
@@ -128,16 +135,23 @@ def website(
     for tag_str in tags:
         all_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
 
+    # Parse exclude tags
+    all_exclude_tags = []
+    for tag_str in exclude_tags:
+        all_exclude_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
+
     # Set up paths
     data_path = Path(data_dir) if data_dir else DEFAULT_DATA_DIR
     out_path = Path(output_dir) if output_dir else DEFAULT_WEBSITE_DATA_DIR
 
     console.print("[bold blue]Generating website data...[/bold blue]")
+    if all_exclude_tags:
+        console.print(f"  Excluding tags: {', '.join(all_exclude_tags)}")
     console.print(f"  Data: {data_path}")
     console.print(f"  Output: {out_path}")
 
     generator = WebsiteGenerator(data_path, out_path)
-    generated = generator.generate_all(all_tags or None)
+    generated = generator.generate_all(all_tags or None, all_exclude_tags or None)
 
     console.print(f"[bold green]Generated {len(generated)} files:[/bold green]")
     for filename, path in generated.items():

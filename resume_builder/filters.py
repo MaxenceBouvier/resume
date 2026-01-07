@@ -34,6 +34,34 @@ def filter_by_tags(df: pd.DataFrame, tags: list[str], tags_column: str = "tags")
     return df[mask]
 
 
+def exclude_by_tags(
+    df: pd.DataFrame, exclude_tags: list[str], tags_column: str = "tags"
+) -> pd.DataFrame:
+    """
+    Exclude DataFrame rows that have ANY of the specified tags.
+
+    Args:
+        df: DataFrame with a tags column
+        exclude_tags: List of tags to exclude (if ANY match, row is excluded)
+        tags_column: Name of the column containing pipe-separated tags
+
+    Returns:
+        Filtered DataFrame with matching rows removed
+    """
+    if not exclude_tags:
+        return df  # No exclusions = include all
+
+    exclude_set = {t.lower() for t in exclude_tags}
+
+    def row_excluded(row_tags: str) -> bool:
+        item_tags = parse_tags(row_tags)
+        # Exclude if ANY tag matches
+        return bool(item_tags & exclude_set)
+
+    mask = ~df[tags_column].apply(row_excluded)
+    return df[mask]
+
+
 def get_all_tags(df: pd.DataFrame, tags_column: str = "tags") -> set[str]:
     """
     Extract all unique tags from a DataFrame.

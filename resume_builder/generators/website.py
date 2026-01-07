@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 
-from ..filters import filter_by_tags
+from ..filters import exclude_by_tags, filter_by_tags
 from ..loader import CVDataLoader
 from .base import group_skills, sort_by_weight
 
@@ -24,12 +24,17 @@ class WebsiteGenerator:
         self.output_dir = Path(output_dir)
         self.loader = CVDataLoader(self.data_dir)
 
-    def generate_all(self, tags: list[str] | None = None) -> dict[str, Path]:
+    def generate_all(
+        self,
+        tags: list[str] | None = None,
+        exclude_tags: list[str] | None = None,
+    ) -> dict[str, Path]:
         """
         Generate all JSON data files for the website.
 
         Args:
-            tags: Optional tag filter (usually None for website)
+            tags: Optional tag filter (include if ANY match)
+            exclude_tags: Optional tags to exclude (exclude if ANY match)
 
         Returns:
             Dictionary mapping filename to output path
@@ -37,18 +42,20 @@ class WebsiteGenerator:
         self.output_dir.mkdir(parents=True, exist_ok=True)
         generated = {}
 
-        generated["experiences.json"] = self._generate_experiences(tags)
-        generated["skills.json"] = self._generate_skills(tags)
-        generated["publications.json"] = self._generate_publications(tags)
+        generated["experiences.json"] = self._generate_experiences(tags, exclude_tags)
+        generated["skills.json"] = self._generate_skills(tags, exclude_tags)
+        generated["publications.json"] = self._generate_publications(tags, exclude_tags)
         generated["contact.json"] = self._generate_contact()
 
         return generated
 
-    def _generate_experiences(self, tags: list[str] | None) -> Path:
+    def _generate_experiences(self, tags: list[str] | None, exclude_tags: list[str] | None) -> Path:
         """Generate experiences.json for website."""
         df = self.loader.load_experiences()
         if tags:
             df = filter_by_tags(df, tags)
+        if exclude_tags:
+            df = exclude_by_tags(df, exclude_tags)
 
         # Group by job but handle multi-position companies like SONY
         experiences = []
@@ -103,11 +110,13 @@ class WebsiteGenerator:
         output_path.write_text(json.dumps(experiences, indent=2))
         return output_path
 
-    def _generate_skills(self, tags: list[str] | None) -> Path:
+    def _generate_skills(self, tags: list[str] | None, exclude_tags: list[str] | None) -> Path:
         """Generate skills.json for website."""
         df = self.loader.load_skills()
         if tags:
             df = filter_by_tags(df, tags)
+        if exclude_tags:
+            df = exclude_by_tags(df, exclude_tags)
 
         grouped = group_skills(df)
 
@@ -125,11 +134,15 @@ class WebsiteGenerator:
         output_path.write_text(json.dumps(skills_data, indent=2))
         return output_path
 
-    def _generate_publications(self, tags: list[str] | None) -> Path:
+    def _generate_publications(
+        self, tags: list[str] | None, exclude_tags: list[str] | None
+    ) -> Path:
         """Generate publications.json for website."""
         df = self.loader.load_publications()
         if tags:
             df = filter_by_tags(df, tags)
+        if exclude_tags:
+            df = exclude_by_tags(df, exclude_tags)
         df = sort_by_weight(df)
 
         publications = []
