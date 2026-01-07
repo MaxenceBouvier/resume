@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from pydantic import ValidationError
 
-from .models import Contact, Education, Experience, Patent, Publication, Skill
+from .models import Contact, Experience, Patent, Publication, Skill
 
 
 class CVDataLoader:
@@ -65,10 +65,12 @@ class CVDataLoader:
         df["weight"] = df["weight"].fillna(0).astype(int)
         return df
 
-    def load_education(self) -> list[Education]:
-        """Load education entries (always included, no filtering)."""
+    def load_education(self) -> pd.DataFrame:
+        """Load education as DataFrame (for filtering)."""
         df = self._read_csv("education.csv")
-        return [Education(**row.to_dict()) for _, row in df.iterrows()]
+        df["tags"] = df["tags"].fillna("")
+        df["description"] = df["description"].fillna("")
+        return df
 
     def load_patents(self) -> pd.DataFrame:
         """Load patents as DataFrame (for filtering)."""

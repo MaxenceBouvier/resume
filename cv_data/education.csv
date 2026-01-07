@@ -1,4 +1,12 @@
-institution,location,degree,period
-Grenoble Alpes University,"Grenoble, France",Ph.D. in Computer Science,Apr 2018 -- Apr 2021
-EPFL,"Lausanne, Switzerland","M.Eng. in Electronics (Highest Honors)",Sep 2015 -- Sep 2017
-Grenoble Institute of Technology,"Grenoble, France",B.Eng. in Electronics,Sep 2012 -- Sep 2015
+institution,location,degree,period,description,tags
+Grenoble Alpes University,"Grenoble, France",Ph.D. in Computer Science,Apr 2018 -- Apr 2021,,
+Grenoble Alpes University,"Grenoble, France",Ph.D. in Computer Science,Apr 2018 -- Apr 2021,"Activities and societies: GIANT Campus, IEEE SCSS.",extra
+Grenoble Alpes University,"Grenoble, France",Ph.D. in Computer Science,Apr 2018 -- Apr 2021,"A study around bio-inspired environment perception for autonomous machines and robots. Research about novel brain-inspired computing paradigms for advanced computer vision and self localization in space, along with hardware implementation of a neuromorphic integrated circuit for direct and efficient operation in image sensors.",extra
+Grenoble Alpes University,"Grenoble, France",Ph.D. in Computer Science,Apr 2018 -- Apr 2021,"Supervision of 3 Internships and successful Lead of 1 Master's Thesis in bio-inspired computer vision.",extra
+EPFL,"Lausanne, Switzerland","M.Eng. in Electronics (Highest Honors)",Sep 2015 -- Sep 2017,,
+EPFL,"Lausanne, Switzerland","M.Eng. in Electronics (Highest Honors)",Sep 2015 -- Sep 2017,"Semester 3 - Focus on digital electronics, HDL, and circuit design and implementation.",extra
+Grenoble INP - Phelma,"Grenoble, France","M.Eng. in Micro and Nanotechnologies for Integrated Systems",Sep 2015 -- Sep 2016,"Semester 2 - Focus on analog electronics, and fabrication and characterization of nanoscale devices.",extra
+Politecnico di Torino,"Turin, Italy","M.Eng. in Micro and Nanotechnologies for Integrated Systems",Sep 2015 -- Sep 2016,"Semester 1 - Focus on foundational knowledge in physical processes, MEMS, and semiconductor physics.",extra
+Grenoble Institute of Technology,"Grenoble, France",B.Eng. in Electronics,Sep 2012 -- Sep 2015,,
+Grenoble Institute of Technology,"Grenoble, France",B.Eng. in Electronics,Sep 2012 -- Sep 2015,"Grade: Highest Honors.",extra
+Grenoble Institute of Technology,"Grenoble, France",B.Eng. in Electronics,Sep 2012 -- Sep 2015,"Activities and societies: Treasurer in the Club Oenologie de Grenoble INP - Preparation of the CANSAT competition - Drummer in the music band ""La Boutique Rouge"".",extra

@@ -75,6 +75,8 @@ class Education(BaseModel):
     location: str
     degree: str
     period: str
+    description: str = ""
+    tags: str = ""
 
 
 class Patent(BaseModel):

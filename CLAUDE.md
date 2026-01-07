@@ -12,11 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Install in development mode
 uv pip install -e .
 
-# Generate LaTeX CV (auto-excludes 'private' by default)
+# Generate LaTeX CV (auto-excludes 'private,extra' by default)
 make_cv latex
 make_cv latex --tags ml,hardware
 
-# Generate website JSON data (auto-excludes 'private,sensitive' by default)
+# Generate website JSON data (auto-excludes 'private,sensitive,extra' by default)
 make_cv website
 
 # Generate both outputs

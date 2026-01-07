@@ -33,8 +33,8 @@ def cli() -> None:
 
 
 # Default exclude tags
-DEFAULT_LATEX_EXCLUDE_TAGS = ["private"]
-DEFAULT_WEBSITE_EXCLUDE_TAGS = ["private", "sensitive"]
+DEFAULT_LATEX_EXCLUDE_TAGS = ["private", "extra"]
+DEFAULT_WEBSITE_EXCLUDE_TAGS = ["private", "sensitive", "extra"]
 
 
 @cli.command()
@@ -48,7 +48,7 @@ DEFAULT_WEBSITE_EXCLUDE_TAGS = ["private", "sensitive"]
     "--exclude-tags",
     "-x",
     multiple=True,
-    help="Tags to exclude (default: 'private'). Use --exclude-tags='' to disable.",
+    help="Tags to exclude (default: 'private,extra'). Use --exclude-tags='' to disable.",
 )
 @click.option(
     "--output",
@@ -132,7 +132,7 @@ def latex(
     "--exclude-tags",
     "-x",
     multiple=True,
-    help="Tags to exclude (default: 'private,sensitive'). Use --exclude-tags='' to disable.",
+    help="Tags to exclude (default: 'private,sensitive,extra'). Use --exclude-tags='' to disable.",
 )
 @click.option(
     "--output-dir",

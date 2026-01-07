@@ -6,7 +6,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from ..filters import exclude_by_tags, filter_by_tags
 from ..loader import CVDataLoader
-from ..models import CVData, Patent, Publication
+from ..models import CVData, Education, Patent, Publication
 from ..utils import escape_latex, format_period_latex
 from .base import group_experiences, group_skills, sort_by_weight
 
@@ -122,8 +122,13 @@ class LaTeXGenerator:
             skills_df = exclude_by_tags(skills_df, exclude_tags)
         skills = group_skills(skills_df)
 
-        # Load education (always included)
-        education = self.loader.load_education()
+        # Load and filter education
+        education_df = self.loader.load_education()
+        if tags:
+            education_df = filter_by_tags(education_df, tags)
+        if exclude_tags:
+            education_df = exclude_by_tags(education_df, exclude_tags)
+        education = [Education(**row.to_dict()) for _, row in education_df.iterrows()]
 
         # Load and filter patents
         patents_df = self.loader.load_patents()
