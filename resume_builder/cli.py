@@ -32,12 +32,23 @@ def cli() -> None:
     pass
 
 
+# Default exclude tags
+DEFAULT_LATEX_EXCLUDE_TAGS = ["private"]
+DEFAULT_WEBSITE_EXCLUDE_TAGS = ["private", "sensitive"]
+
+
 @cli.command()
 @click.option(
     "--tags",
     "-t",
     multiple=True,
     help="Tags to filter by (OR logic). Can be repeated or comma-separated.",
+)
+@click.option(
+    "--exclude-tags",
+    "-x",
+    multiple=True,
+    help="Tags to exclude (default: 'private'). Use --exclude-tags='' to disable.",
 )
 @click.option(
     "--output",
@@ -66,6 +77,7 @@ def cli() -> None:
 )
 def latex(
     tags: tuple[str, ...],
+    exclude_tags: tuple[str, ...],
     output: str | None,
     data_dir: str | None,
     template_dir: str | None,
@@ -76,6 +88,14 @@ def latex(
     all_tags = []
     for tag_str in tags:
         all_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
+
+    # Parse exclude tags (use defaults if none provided)
+    if exclude_tags:
+        all_exclude_tags = []
+        for tag_str in exclude_tags:
+            all_exclude_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
+    else:
+        all_exclude_tags = DEFAULT_LATEX_EXCLUDE_TAGS.copy()
 
     # Set up paths
     data_path = Path(data_dir) if data_dir else DEFAULT_DATA_DIR
@@ -88,11 +108,15 @@ def latex(
     console.print("[bold blue]Generating LaTeX CV...[/bold blue]")
     if all_tags:
         console.print(f"  Tags: {', '.join(all_tags)}")
+    if all_exclude_tags:
+        console.print(f"  Excluding: {', '.join(all_exclude_tags)}")
     console.print(f"  Data: {data_path}")
     console.print(f"  Output: {output_path}")
 
     generator = LaTeXGenerator(data_path, template_path)
-    result_path = generator.generate_to_file(output_path, all_tags or None, summary)
+    result_path = generator.generate_to_file(
+        output_path, all_tags or None, summary, all_exclude_tags or None
+    )
 
     console.print(f"[bold green]Generated:[/bold green] {result_path}")
 
@@ -108,7 +132,7 @@ def latex(
     "--exclude-tags",
     "-x",
     multiple=True,
-    help="Tags to exclude (if ANY match, entry is excluded). Use for sensitive data.",
+    help="Tags to exclude (default: 'private,sensitive'). Use --exclude-tags='' to disable.",
 )
 @click.option(
     "--output-dir",
@@ -135,10 +159,13 @@ def website(
     for tag_str in tags:
         all_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
 
-    # Parse exclude tags
-    all_exclude_tags = []
-    for tag_str in exclude_tags:
-        all_exclude_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
+    # Parse exclude tags (use defaults if none provided)
+    if exclude_tags:
+        all_exclude_tags = []
+        for tag_str in exclude_tags:
+            all_exclude_tags.extend(t.strip() for t in tag_str.split(",") if t.strip())
+    else:
+        all_exclude_tags = DEFAULT_WEBSITE_EXCLUDE_TAGS.copy()
 
     # Set up paths
     data_path = Path(data_dir) if data_dir else DEFAULT_DATA_DIR
@@ -146,7 +173,7 @@ def website(
 
     console.print("[bold blue]Generating website data...[/bold blue]")
     if all_exclude_tags:
-        console.print(f"  Excluding tags: {', '.join(all_exclude_tags)}")
+        console.print(f"  Excluding: {', '.join(all_exclude_tags)}")
     console.print(f"  Data: {data_path}")
     console.print(f"  Output: {out_path}")
 
@@ -194,10 +221,11 @@ def generate_all(
     """Generate both LaTeX CV and website JSON data."""
     console.print("[bold blue]Generating all outputs...[/bold blue]\n")
 
-    # Generate LaTeX with tags
+    # Generate LaTeX with tags (defaults will exclude 'private')
     ctx.invoke(
         latex,
         tags=tags,
+        exclude_tags=(),  # Let latex use its defaults
         output=latex_output,
         data_dir=data_dir,
         template_dir=None,
@@ -206,10 +234,11 @@ def generate_all(
 
     console.print()
 
-    # Generate website (usually without tags)
+    # Generate website (defaults will exclude 'private,sensitive')
     ctx.invoke(
         website,
         tags=(),
+        exclude_tags=(),  # Let website use its defaults
         output_dir=website_output_dir,
         data_dir=data_dir,
     )

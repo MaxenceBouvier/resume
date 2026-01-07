@@ -4,7 +4,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from ..filters import filter_by_tags
+from ..filters import exclude_by_tags, filter_by_tags
 from ..loader import CVDataLoader
 from ..models import CVData, Patent, Publication
 from ..utils import escape_latex, format_period_latex
@@ -51,6 +51,7 @@ class LaTeXGenerator:
         self,
         tags: list[str] | None = None,
         summary_variant: str = "default",
+        exclude_tags: list[str] | None = None,
     ) -> str:
         """
         Generate LaTeX content with optional tag filtering.
@@ -58,12 +59,13 @@ class LaTeXGenerator:
         Args:
             tags: List of tags to filter by (None = include all)
             summary_variant: Which summary variant to use
+            exclude_tags: List of tags to exclude (None = exclude none)
 
         Returns:
             Generated LaTeX content as string
         """
         # Load and process data
-        cv_data = self._load_and_process_data(tags or [], summary_variant)
+        cv_data = self._load_and_process_data(tags or [], summary_variant, exclude_tags or [])
 
         # Render template
         template = self.env.get_template(self.template_name)
@@ -74,6 +76,7 @@ class LaTeXGenerator:
         output_path: Path | str,
         tags: list[str] | None = None,
         summary_variant: str = "default",
+        exclude_tags: list[str] | None = None,
     ) -> Path:
         """
         Generate LaTeX and write to file.
@@ -82,17 +85,20 @@ class LaTeXGenerator:
             output_path: Path for output .tex file
             tags: List of tags to filter by
             summary_variant: Which summary variant to use
+            exclude_tags: List of tags to exclude
 
         Returns:
             Path to generated file
         """
         output_path = Path(output_path)
-        content = self.generate(tags, summary_variant)
+        content = self.generate(tags, summary_variant, exclude_tags)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(content)
         return output_path
 
-    def _load_and_process_data(self, tags: list[str], summary_variant: str) -> CVData:
+    def _load_and_process_data(
+        self, tags: list[str], summary_variant: str, exclude_tags: list[str]
+    ) -> CVData:
         """Load, filter, and group CV data."""
         # Load contact (always included)
         contact = self.loader.load_contact()
@@ -104,12 +110,16 @@ class LaTeXGenerator:
         exp_df = self.loader.load_experiences()
         if tags:
             exp_df = filter_by_tags(exp_df, tags)
+        if exclude_tags:
+            exp_df = exclude_by_tags(exp_df, exclude_tags)
         experiences = group_experiences(exp_df)
 
         # Load and filter skills
         skills_df = self.loader.load_skills()
         if tags:
             skills_df = filter_by_tags(skills_df, tags)
+        if exclude_tags:
+            skills_df = exclude_by_tags(skills_df, exclude_tags)
         skills = group_skills(skills_df)
 
         # Load education (always included)
@@ -119,6 +129,8 @@ class LaTeXGenerator:
         patents_df = self.loader.load_patents()
         if tags:
             patents_df = filter_by_tags(patents_df, tags)
+        if exclude_tags:
+            patents_df = exclude_by_tags(patents_df, exclude_tags)
         patents_df = sort_by_weight(patents_df)
         patents = [Patent(**row.to_dict()) for _, row in patents_df.iterrows()]
 
@@ -126,6 +138,8 @@ class LaTeXGenerator:
         pubs_df = self.loader.load_publications()
         if tags:
             pubs_df = filter_by_tags(pubs_df, tags)
+        if exclude_tags:
+            pubs_df = exclude_by_tags(pubs_df, exclude_tags)
         pubs_df = sort_by_weight(pubs_df)
         publications = [Publication(**row.to_dict()) for _, row in pubs_df.iterrows()]
 
