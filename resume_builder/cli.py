@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -303,13 +304,20 @@ def validate(data_dir: str | None) -> None:
         console.print("\n[bold green]All files validated successfully![/bold green]")
 
 
-@cli.command()
-@click.argument("tex_file", type=click.Path(exists=True))
-def build(tex_file: str) -> None:
-    """Build PDF from LaTeX file using Docker."""
+@cli.command(name="build-pdf")
+@click.argument("tex_file", type=click.Path(exists=True), default="maxence_bouvier_resume.tex")
+def build_pdf(tex_file: str) -> None:
+    """Build PDF from LaTeX file using Docker.
+
+    Temp files are stored in tex_tmp/, PDF is copied to the source directory.
+    """
     path = Path(tex_file).expanduser().resolve()
     directory = path.parent
     file_name = path.name
+    temp_dir = directory / "tex_tmp"
+
+    # Create temp directory
+    temp_dir.mkdir(exist_ok=True)
 
     console.print(f"[bold blue]Building PDF from {path}...[/bold blue]")
 
@@ -317,20 +325,24 @@ def build(tex_file: str) -> None:
         "docker",
         "run",
         "--rm",
-        "-i",
         "-v",
         f"{directory}:/data",
         "-w",
         "/data",
-        "blang/latex",
+        "blang/latex:ctanfull",
         "pdflatex",
+        "-output-directory=tex_tmp",
         file_name,
     ]
 
     try:
         subprocess.run(cmd, check=True)
-        pdf_path = path.with_suffix(".pdf")
-        console.print(f"[bold green]Built:[/bold green] {pdf_path}")
+        # Copy PDF from temp dir to source directory
+        pdf_name = path.stem + ".pdf"
+        temp_pdf = temp_dir / pdf_name
+        final_pdf = directory / pdf_name
+        shutil.copy(temp_pdf, final_pdf)
+        console.print(f"[bold green]Built:[/bold green] {final_pdf}")
     except subprocess.CalledProcessError as e:
         console.print(f"[bold red]Build failed:[/bold red] {e}")
         raise SystemExit(1)

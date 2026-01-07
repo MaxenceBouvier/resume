@@ -30,8 +30,9 @@ make_cv tags
 # Validate CV data files
 make_cv validate
 
-# Build PDF from LaTeX file (using Docker)
-make_cv build output/maxence_bouvier_resume.tex
+# Build PDF from LaTeX file (uses Docker, temp files in tex_tmp/)
+make_cv build-pdf                              # defaults to maxence_bouvier_resume.tex
+make_cv build-pdf path/to/other.tex            # or specify a file
 ```
 
 #### Options
