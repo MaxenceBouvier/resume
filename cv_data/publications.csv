@@ -1,5 +1,5 @@
 authors,title,venue,year,url,tags,weight
-"M. Bouvier, et al.","GENIAL: Generative Design Space Exploration via Network Inversion for Low Power Algorithmic Logic Units",Under Review,2025,https://maxencebouvier.xyz/files/GENIAL.pdf,eda|ai|ml|digital|huawei,100
+"M. Bouvier, R. Amaudruz, F. Arnold, R. Andri, L. Cavigelli","GENIAL: Generative Design Space Exploration via Network Inversion for Low Power Algorithmic Logic Units","31st Asia and South Pacific Design Automation Conference (ASP-DAC)",2026,https://github.com/huawei-csl/GENIAL,eda|ai|ml|digital|huawei,100
 "F. Arnold, M. Bouvier, et al.","Explicit Sign-Magnitude Encoders Enable Power-Efficient Multipliers",International Workshop on Logic and Synthesis,2025,https://maxencebouvier.xyz/files/IWLS.pdf,eda|digital|huawei,95
 "F. Arnold*, M. Bouvier*, et al.","The Art of Beating the Odds with Predictor-Guided Random Design Space Exploration","62nd ACM/IEEE Design Automation Conference (DAC) (Poster)",2025,https://arxiv.org/abs/2502.17936,eda|ai|ml|huawei,90
 "C. M. Turrero, M. Bouvier, et al.","ALERT-Transformer: Bridging Asynchronous and Synchronous Machine Learning for Real-Time Event-based Spatio-Temporal Data",Proceedings of the 41st ICML,2024,https://dl.acm.org/doi/abs/10.5555/3692070.3694066,ai|ml|transformers|sony,85

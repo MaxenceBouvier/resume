@@ -183,10 +183,10 @@
         \resumeItem{Team Leader}
           {Built and led a multidisciplinary team of experts to develop innovative solutions for reducing switching activity and power consumption in Huawei's GPUs.\vspace{-2pt}}
         \resumeItemTitleAndStart{ML for Chip Design}
-        \item{Designed and developed an automated ML-based framework for iterative generation of multiplier circuits with reduced switching activity and lower power consumption. The full pipeline was up and running in less than three months, working alone.\vspace{-2pt}}
-        \item{Deployed synthesis and simulation of millions of designs using containerized (Docker), open source EDA tools on a multi-node SLURM cluster. Adapted the framework for commercial EDA tools.\vspace{-2pt}}
-        \item{Proved that Network Inversion is superior to other state of the art method for design generation (and design space exploration).\vspace{-2pt}}
-        \item{Results: we found multiplier encodings that reduce power consumption by approximately 10\% compared to conventional two's complement implementations. (\textit{1 paper.})\vspace{-2pt}}
+        \item{Designed and developed \href{https://github.com/huawei-csl/GENIAL}{\textbf{GENIAL}}: ML framework for iterative generation of multiplier circuits with reduced switching activity. Accepted at ASP-DAC 2026. (\textit{1 paper.})\vspace{-2pt}}
+        \item{Built \href{https://github.com/huawei-csl/oss_eda_base}{\textbf{oss\_eda\_base}}: Docker base image bundling open-source EDA tools (Yosys, ABC, Verilator) for reproducible synthesis pipelines on SLURM clusters.\vspace{-2pt}}
+        \item{Proved that Network Inversion outperforms other state-of-the-art methods for design generation and design space exploration.\vspace{-2pt}}
+        \item{Results: achieved up to 18\% switching activity reduction in multipliers on AI workloads compared to conventional two's complement encoding.\vspace{-2pt}}
         \end{itemize}
         \resumeItem{ML for Advanced Synthesis}
         {Developed a predictor-driven Logic Synthesis Optimization framework achieving up to 21\% QoR improvement and 14× faster execution. - (\textit{2 papers.})\vspace{-2pt}}
@@ -374,7 +374,7 @@
 \section{Publications}
 \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
   \begin{small}
-  \item M. Bouvier, et al., \href{https://maxencebouvier.xyz/files/GENIAL.pdf}{``\textbf{GENIAL: Generative Design Space Exploration via Network Inversion for Low Power Algorithmic Logic Units},''} \textit{Under Review}, 2025.
+  \item M. Bouvier, R. Amaudruz, F. Arnold, R. Andri, L. Cavigelli, \href{https://github.com/huawei-csl/GENIAL}{``\textbf{GENIAL: Generative Design Space Exploration via Network Inversion for Low Power Algorithmic Logic Units},''} \textit{31st Asia and South Pacific Design Automation Conference (ASP-DAC)}, 2026.
   \vspace{-7pt}
   \item F. Arnold, M. Bouvier, et al., \href{https://maxencebouvier.xyz/files/IWLS.pdf}{``\textbf{Explicit Sign-Magnitude Encoders Enable Power-Efficient Multipliers},''} \textit{International Workshop on Logic and Synthesis}, 2025.
   \vspace{-7pt}
