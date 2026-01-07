@@ -3,12 +3,10 @@
 import json
 from pathlib import Path
 
-import pandas as pd
 
 from ..filters import filter_by_tags
 from ..loader import CVDataLoader
-from ..models import Patent, Publication
-from .base import group_experiences, group_skills, sort_by_weight
+from .base import group_skills, sort_by_weight
 
 
 class WebsiteGenerator:
@@ -69,31 +67,37 @@ class WebsiteGenerator:
 
                 for _, pos_row in positions.iterrows():
                     pos_df = company_df[
-                        (company_df["position"] == pos_row["position"]) &
-                        (company_df["period"] == pos_row["period"])
+                        (company_df["position"] == pos_row["position"])
+                        & (company_df["period"] == pos_row["period"])
                     ].sort_values("weight", ascending=False)
 
-                    positions_list.append({
-                        "title": pos_row["position"],
-                        "period": pos_row["period"],
-                        "achievements": pos_df["achievement_text"].tolist(),
-                    })
+                    positions_list.append(
+                        {
+                            "title": pos_row["position"],
+                            "period": pos_row["period"],
+                            "achievements": pos_df["achievement_text"].tolist(),
+                        }
+                    )
 
-                experiences.append({
-                    "company": company,
-                    "location": location,
-                    "positions": positions_list,
-                })
+                experiences.append(
+                    {
+                        "company": company,
+                        "location": location,
+                        "positions": positions_list,
+                    }
+                )
             else:
                 # Single position company
                 sorted_df = company_df.sort_values("weight", ascending=False)
-                experiences.append({
-                    "company": company,
-                    "position": sorted_df.iloc[0]["position"],
-                    "location": sorted_df.iloc[0]["location"],
-                    "period": sorted_df.iloc[0]["period"],
-                    "achievements": sorted_df["achievement_text"].tolist(),
-                })
+                experiences.append(
+                    {
+                        "company": company,
+                        "position": sorted_df.iloc[0]["position"],
+                        "location": sorted_df.iloc[0]["location"],
+                        "period": sorted_df.iloc[0]["period"],
+                        "achievements": sorted_df["achievement_text"].tolist(),
+                    }
+                )
 
         output_path = self.output_dir / "experiences.json"
         output_path.write_text(json.dumps(experiences, indent=2))
@@ -130,13 +134,15 @@ class WebsiteGenerator:
 
         publications = []
         for _, row in df.iterrows():
-            publications.append({
-                "authors": row["authors"],
-                "title": row["title"],
-                "venue": row["venue"],
-                "year": int(row["year"]),
-                "url": row["url"],
-            })
+            publications.append(
+                {
+                    "authors": row["authors"],
+                    "title": row["title"],
+                    "venue": row["venue"],
+                    "year": int(row["year"]),
+                    "url": row["url"],
+                }
+            )
 
         output_path = self.output_dir / "publications.json"
         output_path.write_text(json.dumps(publications, indent=2))

@@ -1,5 +1,7 @@
 """Base grouping logic for transforming flat CSV data into hierarchical structures."""
 
+from typing import Any, cast
+
 import pandas as pd
 
 from ..models import GroupedExperience, GroupedSkill
@@ -26,7 +28,15 @@ def group_experiences(df: pd.DataFrame) -> list[GroupedExperience]:
     # Group by job context (preserves CSV order for jobs via sort=False)
     grouped = df.groupby(["company", "location", "position", "period"], sort=False)
 
-    for (company, loc, pos, period), group in grouped:
+    for key, group in grouped:
+        # Cast key to tuple for type safety (pandas returns tuple for multi-column groupby)
+        key_tuple = cast(tuple[Any, Any, Any, Any], key)
+        company, loc, pos, period = (
+            str(key_tuple[0]),
+            str(key_tuple[1]),
+            str(key_tuple[2]),
+            str(key_tuple[3]),
+        )
         # Sort bullets by weight within the job (descending = highest first)
         sorted_group = group.sort_values("weight", ascending=False)
 
@@ -82,7 +92,8 @@ def group_skills(df: pd.DataFrame) -> list[GroupedSkill]:
     # Group by category (preserves order)
     grouped = df.groupby("category", sort=False)
 
-    for category, group in grouped:
+    for cat_key, group in grouped:
+        category = str(cat_key)
         # Sort skills by weight within category (descending)
         sorted_group = group.sort_values("weight", ascending=False)
 

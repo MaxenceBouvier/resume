@@ -19,7 +19,9 @@ console = Console()
 DEFAULT_DATA_DIR = Path(__file__).parent.parent / "cv_data"
 DEFAULT_TEMPLATE_DIR = Path(__file__).parent.parent / "templates"
 DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "output"
-DEFAULT_WEBSITE_DATA_DIR = Path(__file__).parent.parent / "ext" / "bio-website-launch" / "src" / "data"
+DEFAULT_WEBSITE_DATA_DIR = (
+    Path(__file__).parent.parent / "ext" / "bio-website-launch" / "src" / "data"
+)
 
 
 @click.group()
@@ -82,7 +84,7 @@ def latex(
     # Ensure output directory exists
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    console.print(f"[bold blue]Generating LaTeX CV...[/bold blue]")
+    console.print("[bold blue]Generating LaTeX CV...[/bold blue]")
     if all_tags:
         console.print(f"  Tags: {', '.join(all_tags)}")
     console.print(f"  Data: {data_path}")
@@ -129,7 +131,7 @@ def website(
     data_path = Path(data_dir) if data_dir else DEFAULT_DATA_DIR
     out_path = Path(output_dir) if output_dir else DEFAULT_WEBSITE_DATA_DIR
 
-    console.print(f"[bold blue]Generating website data...[/bold blue]")
+    console.print("[bold blue]Generating website data...[/bold blue]")
     console.print(f"  Data: {data_path}")
     console.print(f"  Output: {out_path}")
 
@@ -248,7 +250,7 @@ def validate(data_dir: str | None) -> None:
 
     # Validate contact
     try:
-        contact = loader.load_contact()
+        loader.load_contact()
         console.print("[green]contact.csv[/green]: OK")
     except Exception as e:
         errors.append(f"contact.csv: {e}")

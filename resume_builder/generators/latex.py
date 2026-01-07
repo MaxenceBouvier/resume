@@ -2,7 +2,6 @@
 
 from pathlib import Path
 
-import pandas as pd
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from ..filters import filter_by_tags
@@ -30,7 +29,9 @@ class LaTeXGenerator:
             template_name: Name of Jinja2 template file
         """
         self.data_dir = Path(data_dir)
-        self.template_dir = Path(template_dir) if template_dir else self.data_dir.parent / "templates"
+        self.template_dir = (
+            Path(template_dir) if template_dir else self.data_dir.parent / "templates"
+        )
         self.template_name = template_name
         self.loader = CVDataLoader(self.data_dir)
 

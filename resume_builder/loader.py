@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 from pydantic import ValidationError
 
-from .models import Contact, Education, Experience, Patent, Publication, Skill, Summary
+from .models import Contact, Education, Experience, Patent, Publication, Skill
 
 
 class CVDataLoader:
