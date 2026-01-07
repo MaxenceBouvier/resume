@@ -11,6 +11,9 @@ class Contact(BaseModel):
     phone: str
     linkedin: str
     scholar: str
+    location: str = ""
+    website: str = ""
+    github: str = ""
 
 
 class Summary(BaseModel):
