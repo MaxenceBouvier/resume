@@ -1,0 +1,235 @@
+{% raw %}
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{mathptmx}
+
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\fontfamily{phv}\selectfont
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item[]
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \vspace{-2pt}\\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-8.5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-8.5pt}
+}
+
+\newcommand{\resumeEducationSubheading}[4]{
+  \item \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $|$ \textit{\small#3} & \textit{\small #4} $|$ #2
+    \end{tabular*}\vspace{-10pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\newcommand{\datedline}[2]{%
+  {\par #1 \hfill #2 \par}%
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-5pt}}
+
+\newcommand{\resumeItemTitleAndStart}[1]{
+          \item\small{
+          \textbf{#1\vspace{-2pt}}
+          }
+          \begin{itemize}[topsep=0pt, leftmargin=*]
+          }
+
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+{% endraw %}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{ {{- cv.contact.linkedin | escape_tex -}} }{\Large\fontfamily{phv}\selectfont {{ cv.contact.name | escape_tex }}}} & Email : \href{mailto:{{ cv.contact.email | escape_tex }}}{ {{- cv.contact.email | escape_tex -}} }\\
+  \href{ {{- cv.contact.linkedin | escape_tex -}} }{LinkedIn} $|$ \href{ {{- cv.contact.scholar | escape_tex -}} }{GoogleScholar} & Mobile : \href{tel:{{ cv.contact.phone | replace('-', '') | replace('+', '') }}}{ {{- cv.contact.phone | escape_tex -}} } \\
+\end{tabular*}
+
+
+{% if cv.summary %}
+%-----------CENTERED TEXT-----------------
+\begin{justify}
+  \small{ {{- cv.summary | escape_tex -}} }
+\end{justify}\vspace{-10pt}
+{% endif %}
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+{% set prev_company = namespace(value='') %}
+{% for exp in cv.experiences %}
+{% if prev_company.value == exp.company %}
+    \resumeSubSubheading
+      { {{- exp.position | escape_tex -}} }{ {{- exp.period | format_period -}} }
+{% else %}
+    \resumeSubheading
+      { {{- exp.company | escape_tex -}} }{ {{- exp.location | escape_tex -}} }
+      { {{- exp.position | escape_tex -}} }{ {{- exp.period | format_period -}} }
+{% endif %}
+      \resumeItemListStart
+{% for group_name, items in exp.achievement_groups.items() %}
+{% if items | length > 1 %}
+        \resumeItemTitleAndStart{ {{- group_name | escape_tex -}} }
+{% for item in items %}
+          \item{ {{- item | escape_tex -}} \vspace{-2pt}}
+{% endfor %}
+        \end{itemize}
+{% else %}
+        \resumeItem{ {{- group_name | escape_tex -}} }
+          { {{- items[0] | escape_tex -}} \vspace{-2pt}}
+{% endif %}
+{% endfor %}
+{% set ungrouped = [] %}
+{% for ach in exp.achievements %}
+{% set found = namespace(value=false) %}
+{% for group_name, items in exp.achievement_groups.items() %}
+{% if ach in items %}
+{% set found.value = true %}
+{% endif %}
+{% endfor %}
+{% if not found.value %}
+{% set _ = ungrouped.append(ach) %}
+{% endif %}
+{% endfor %}
+{% for item in ungrouped %}
+        \item\small{ {{- item | escape_tex -}} \vspace{-2pt}}
+{% endfor %}
+      \resumeItemListEnd
+{% set prev_company.value = exp.company %}
+{% endfor %}
+
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+\section{Skills}
+\begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
+{% for skill_group in cv.skills %}
+   \item
+     \textbf{ {{- skill_group.category | escape_tex -}} }{: {{ skill_group.skills | join(', ') | escape_tex }}}{% if not loop.last %}\vspace{-10pt}{% endif %}
+
+{% endfor %}
+  \end{itemize}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
+{% for edu in cv.education %}
+    \resumeEducationSubheading
+      { {{- edu.institution | escape_tex -}} }{ {{- edu.location | escape_tex -}} }
+      { {{- edu.degree | escape_tex -}} }{ {{- edu.period | format_period -}} }
+{% endfor %}
+  \end{itemize}
+  \vspace{10pt}
+
+
+{% if cv.patents %}
+%-------------Patents------------------
+\section{Patents}
+\begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
+  \begin{small}
+{% for patent in cv.patents %}
+    \item {{ patent.authors | escape_tex }}, ``{{ patent.title | escape_tex }},'' \href{ {{- patent.url -}} }{\textit{ {{- patent.reference | escape_tex -}} }}, {{ patent.year }}.
+{% if not loop.last %}
+    \vspace{-10pt}
+{% endif %}
+{% endfor %}
+  \end{small}
+\end{itemize}
+{% endif %}
+
+
+{% if cv.publications %}
+%-------------Publications------------------
+\section{Publications}
+\begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
+  \begin{small}
+{% for pub in cv.publications %}
+  \item {{ pub.authors | escape_tex }}, \href{ {{- pub.url -}} }{``\textbf{ {{- pub.title | escape_tex -}} },''} \textit{ {{- pub.venue | escape_tex -}} }, {{ pub.year }}.
+{% if not loop.last %}
+  \vspace{-7pt}
+{% endif %}
+{% endfor %}
+\end{small}
+\end{itemize}
+{% endif %}
+
+
+%-------------------------------------------
+\end{document}

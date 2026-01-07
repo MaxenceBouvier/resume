@@ -1,0 +1,3 @@
+[submodule "ext/bio-website-launch"]
+	path = ext/bio-website-launch
+	url = https://github.com/MaxenceBouvier/bio-website-launch.git

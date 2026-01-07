@@ -1,0 +1,31 @@
+category,skill,tags,icon,weight
+Languages,Python,ai|ml|eda|always,Code,100
+Languages,C/C++,embedded|system|always,Code,95
+Languages,SystemVerilog,digital|rtl|eda,Cpu,90
+Languages,SKILL,analog|cadence|eda,Cpu,85
+Languages,MATLAB,research|simulation,Code,80
+Languages,VHDL,digital|rtl|fpga,Cpu,75
+AI/ML,PyTorch,ai|ml|always,Brain,100
+AI/ML,Transformers,ai|ml|nlp|always,Brain,95
+AI/ML,"LLM APIs (Claude, OpenAI)",ai|llm|always,Brain,90
+AI/ML,llama.cpp,ai|llm|local,Brain,85
+AI/ML,Optuna,ai|ml|optimization,Brain,80
+AI/ML,SINQ,ai|ml|quantization,Brain,75
+AI/ML,MLFlow,ai|ml|ops,Brain,70
+AI/ML,ONNX,ai|ml|deployment,Brain,65
+Hardware & EDA Tools,NGSPICE,analog|eda|simulation|always,Cpu,100
+Hardware & EDA Tools,Spectre,analog|cadence|eda,Cpu,95
+Hardware & EDA Tools,Virtuoso,analog|cadence|eda,Cpu,90
+Hardware & EDA Tools,Yosys,digital|eda|synthesis|always,Cpu,85
+Hardware & EDA Tools,OpenROAD,digital|eda|pnr,Cpu,80
+Hardware & EDA Tools,ABC,digital|eda|synthesis,Cpu,75
+Hardware & EDA Tools,Mockturtle,digital|eda|synthesis,Cpu,70
+Hardware & EDA Tools,Verilator,digital|eda|simulation,Cpu,65
+Hardware & EDA Tools,CocoTB,digital|eda|verification|python,Cpu,60
+Hardware & EDA Tools,Design Compiler,digital|eda|synthesis|commercial,Cpu,55
+Hardware & EDA Tools,PrimeTime,digital|eda|timing|commercial,Cpu,50
+Software & DevOps,Docker,devops|containerization|always,Settings,100
+Software & DevOps,Git,devops|vcs|always,Settings,95
+Software & DevOps,CI/CD,devops|automation|always,Settings,90
+Software & DevOps,MCP (Model Context Protocol),ai|llm|tools,Settings,85
+Software & DevOps,Claude Code,ai|llm|tools,Settings,80

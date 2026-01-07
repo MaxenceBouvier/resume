@@ -4,13 +4,33 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resume-builder"
-version = "0.1.0"
-description = "Utility to build a CV PDF from a LaTeX source using Docker"
+version = "0.2.0"
+description = "Data-driven CV and website generator with tag-based filtering"
 readme = "README.md"
 authors = [
-  {name = "Maintainer"}
+  {name = "Maxence Bouvier"}
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.0",
+  "pydantic>=2.0",
+  "jinja2>=3.0",
+  "click>=8.0",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "ruff>=0.1",
+]
 
 [project.scripts]
 make_cv = "resume_builder.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["resume_builder*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

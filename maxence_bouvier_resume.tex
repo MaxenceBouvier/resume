@@ -150,8 +150,7 @@
 
 %-----------CENTERED TEXT-----------------
 \begin{justify}
-  % \small{Research scientist with 7+ years of experience with AI and Machine Learning at the intersection of hardware and software. Currently leading innovations in ML-powered chip design at Huawei. Expertise spans EDA automation, transformer-based AI models, and energy-efficient hardware accelerators. I am able to explain how to build a Tensor Processing Unit from the sand and how to program it.}
-  \small{AI \& HW Research Scientist with 7+ years of experience in ML and Chip Design, currently leading innovations in ML for EDA at Huawei. Expertise spans ML for chip design and logic synthesis optimization, EDA automation, energy-efficient HW accelerators design, 2D/3D computer vision, transformer-based networks, large-scale workload distribution on multi-node servers.}
+  \small{AI \& HW Research Scientist with 8+ years of experience in ML and Chip Design. Currently building LLM-driven circuit design automation at arago.inc (AIMÉE team). Expertise spans LLM-based EDA automation, analog/digital circuit optimization, Bayesian design space exploration, energy-efficient HW accelerators, and ML infrastructure tooling.}
 \end{justify}\vspace{-10pt}
 
 
@@ -160,8 +159,26 @@
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
+      {arago.inc}{Zurich, Switzerland}
+      {AI for Chip Design}{Nov 2025 - Present}
+      \resumeItemListStart
+        \resumeItemTitleAndStart{LLM-Driven Circuit Design Automation (AIMÉE)}
+          \item{Built \textbf{circuit\_explorer}: FunSearch-inspired LLM exploration engine for analog/digital circuits. LLM generates Python circuit constructors, evaluated via ngspice/Optuna two-stage optimization. Supports Claude, OpenAI, HuggingFace, and local llama.cpp backends.\vspace{-2pt}}
+          \item{Developed \textbf{virtuoso\_adapter}: Python automation framework for Cadence Virtuoso with bidirectional SKILL bridge. Enables automated ADC characterization (ENOB/SFDR/SNR), waveform analysis (PSF to NumPy), and remote Spectre simulation.\vspace{-2pt}}
+          \item{Created \textbf{ngspice\_playground}: Docker-based EDA environments with analog (NGSPICE + SKY130 PDK) and digital (Yosys + OpenROAD + ASAP7) toolchains, GPU-accelerated ML, and CI/CD automation.\vspace{-2pt}}
+        \end{itemize}
+        \resumeItem{Memory Configuration Optimization}
+          {Developed \textbf{memcfg\_opt}: Bayesian optimization tool (Optuna) for ARM SRAM design. Multi-objective optimization (area, timing, power), 10-100x faster than grid search, with 1027+ tests and 95\% coverage.\vspace{-2pt}}
+        \resumeItemTitleAndStart{AI/ML Infrastructure \& Tooling}
+          \item{Built \textbf{hf\_quantizer}: CLI tool for 4-bit model quantization using SINQ (Sinkhorn-Normalized Quantization) with automated HuggingFace Hub deployment and HumanEval verification.\vspace{-2pt}}
+          \item{Created \textbf{mcp\_kiwi}: Model Context Protocol server connecting Claude to internal wiki (Outline), with LRU caching, rate limiting, YunoHost SSO, and full document/collection CRUD.\vspace{-2pt}}
+          \item{Developed internal Claude Code plugin marketplace for team-wide AI tool distribution and management.\vspace{-2pt}}
+        \end{itemize}
+      \resumeItemListEnd
+
+    \resumeSubheading
       {Huawei}{Zurich, Switzerland}
-      {AI \& HW Research Scientist}{May 2024 - Present}
+      {AI \& HW Research Scientist}{May 2024 - Oct 2025}
       \resumeItemListStart
         \resumeItem{Team Leader}
           {Built and led a multidisciplinary team of experts to develop innovative solutions for reducing switching activity and power consumption in Huawei's GPUs.\vspace{-2pt}}
@@ -298,13 +315,13 @@
 \section{Skills}
 \begin{itemize}[leftmargin=*, topsep=0pt, label=$\circ$]
    \item
-     \textbf{Languages}{: Python, C/C++, SystemVerilog, MATLAB, VHDL}\vspace{-10pt}
+     \textbf{Languages}{: Python, C/C++, SystemVerilog, SKILL, MATLAB, VHDL}\vspace{-10pt}
    \item
-     \textbf{Libraries}{: PyTorch, MLFlow, ONNX, CUDA, OpenCV, ROS, Dash, Flask, concurrent}\vspace{-10pt}
+     \textbf{AI/ML}{: PyTorch, Transformers, LLM APIs (Claude, OpenAI), llama.cpp, Optuna, SINQ, MLFlow, ONNX}\vspace{-10pt}
    \item
-     \textbf{Hardware \& EDA Tools}{: CocoTB, Yosys, OpenRoad, ABC, Mockturtle, Verilator, Design Compiler, QuestaSim, PrimeTime Power, PowerPro, Innovus}\vspace{-10pt}
+     \textbf{Hardware \& EDA Tools}{: NGSPICE, Spectre, Virtuoso, Yosys, OpenROAD, ABC, Mockturtle, Verilator, CocoTB, Design Compiler, PrimeTime}\vspace{-10pt}
    \item
-     \textbf{Software \& DevOps}{: Docker, Git, Continuous Integration (CI)}
+     \textbf{Software \& DevOps}{: Docker, Git, CI/CD, MCP (Model Context Protocol), Claude Code}
   \end{itemize}
 
 % Programming and Development
